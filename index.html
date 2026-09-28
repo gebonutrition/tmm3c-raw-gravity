@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1A1A1A">
+  <meta name="description" content="Take My Muffin × Raw Gravity — exclusive collab edition and 25% fan discount.">
+  <title>Take My Muffin × Raw Gravity — 25% Fan Discount</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#1A1A1A;--green:#72CC1D;--yellow:#FFEC00;--blue:#5784CE;--cyan:#64BEE1;--orange:#D63E16;--purple:#AC4C96;--orange2:#F7941D;--orange3:#EE7F16;--orange4:#D2611A}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;width:100%;min-height:100%;background:var(--bg);color:#fff}
+    body{font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-text-size-adjust:100%}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    a{color:var(--cyan);text-decoration:none}
+    a:hover{color:var(--yellow)}
+    .font-bangers{font-family:Bangers,Impact,sans-serif}
+
+    @keyframes tmmScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes tmmFloat{0%,100%{transform:rotate(4deg) translateY(0)}50%{transform:rotate(2deg) translateY(-12px)}}
+    @keyframes tmmPop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+
+    .page{width:100%;background:var(--bg)}
+    .mobile-only{display:block}.desktop-only{display:none}
+
+    .ticker{background:var(--bg);border-bottom:3px solid var(--green);height:36px;overflow:hidden;display:flex;align-items:center}
+    .ticker-track{display:flex;white-space:nowrap;animation:tmmScroll 30s linear infinite;font-family:Bangers,Impact,sans-serif;font-size:18px;letter-spacing:.06em}
+    .ticker-item{display:flex;gap:18px;padding-right:18px}
+    .ticker-green{color:var(--green)}.ticker-yellow{color:var(--yellow)}
+
+    .hero{position:relative;background:#3C0A3C;overflow:hidden;border-bottom:5px solid var(--bg)}
+    .hero-bg{position:absolute;inset:0;background:url('assets/space.webp') 60% 0%/cover no-repeat}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,10,60,.55) 0%,rgba(60,10,60,.9) 45%,#3C0A3C 75%)}
+    .hero-inner{position:relative;padding:32px 20px 44px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+    .eyebrow{font:900 11px 'Arial Black',Arial;letter-spacing:.14em;color:var(--yellow)}
+    .hero h1{margin:0;font-family:Bangers,Impact,sans-serif;font-weight:400;font-size:62px;line-height:.9;letter-spacing:.015em;color:var(--green);-webkit-text-stroke:6px var(--bg);paint-order:stroke fill;filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(4px 5px 0 var(--bg));text-wrap:balance}
+    .hero h1 .yellow{color:var(--yellow)}.hero h1 .blue{color:var(--blue)}
+    .hero p{margin:0;font:700 17px/1.35 Arial,sans-serif;color:#fff;text-wrap:pretty}
+    .button-pair{cursor:pointer;display:inline-flex;align-items:stretch;padding:0;border:none;border-radius:100px;overflow:hidden;box-shadow:0 3px 0 #8A4A10,0 5px 10px rgba(0,0,0,.35);white-space:nowrap;background:none}
+    .button-pair.large{
+      width:auto;
+    }
+    .button-pair .amazon{display:flex;align-items:center;background:var(--bg);color:#fff}
+    .button-pair .offer{display:flex;align-items:center;background:linear-gradient(90deg,var(--orange2) 0%,var(--orange3) 55%,var(--orange4) 100%);color:#fff}
+    .button-pair.small .amazon,
+    .button-pair.small .offer{
+      padding:11px 18px 12px;
+      font:700 14px/1 Arial,Helvetica,sans-serif;
+    }
+
+    .button-pair.small .offer{
+      padding-left:20px;
+    }
+    .button-pair.large .amazon{padding:17px 20px 19px;font:700 19px/1 Arial,Helvetica,sans-serif;letter-spacing:-.02em}
+    .button-pair.large .offer{flex:1;justify-content:center;padding:17px 16px 19px;font:700 19px/1 Arial,Helvetica,sans-serif}
+
+    .hero-product{position:relative;display:flex;justify-content:center;align-items:center;width:100%;padding:18px 0 10px}
+    .hero-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,var(--yellow) 0%,rgba(255,236,0,.35) 40%,rgba(255,236,0,0) 70%)}
+    .hero .button-pair.small .offer{
+      flex:1;
+      justify-content:center;
+    }
+    .pack-card{position:relative;width:250px;animation:tmmFloat 5s ease-in-out infinite;background:#fff;border:4px solid var(--bg);border-radius:26px;padding:12px;box-shadow:0 0 0 5px #fff,8px 10px 0 5px var(--bg)}
+    .pack-card img{width:100%;display:block}
+    .fans-only{position:absolute;top:0;right:4px;background:var(--orange);color:#fff;border:3px solid var(--bg);border-radius:50%;width:88px;height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);box-shadow:4px 4px 0 var(--bg);font-family:Bangers,Impact,sans-serif;line-height:.9;text-align:center}
+    .fans-only .big{font-size:32px}.fans-only .small{font-size:14px;letter-spacing:.05em}
+    .fan-price{background:var(--yellow);color:var(--bg);border:4px solid var(--bg);box-shadow:0 0 0 3px #fff,5px 5px 0 3px var(--bg);border-radius:12px;padding:8px 16px;transform:rotate(-3deg);font-family:Bangers,Impact,sans-serif;font-size:30px;letter-spacing:.03em;line-height:1}
+    .countdown-wrap{display:flex;flex-direction:column;gap:8px;align-items:center}
+    .countdown-label{font:700 11px Arial;letter-spacing:.16em;color:var(--cyan)}
+    .countdown{display:flex;gap:8px}
+    .timebox{
+      background:var(--bg);
+      border:3px solid #fff;
+      border-radius:10px;
+      padding:7px 6px;
+      min-width:64px;
+      text-align:center;
+      display:inline-flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .timebox .num{font:900 28px/1 'Arial Black',Arial;color:var(--yellow)}
+    .timebox .lbl{font:700 10px Arial;letter-spacing:.12em;color:#fff;margin-top:4px}
+
+    .benefits{background:var(--yellow);border-bottom:4px solid var(--bg);height:52px;overflow:hidden;display:flex;align-items:center}
+    .benefits-track{display:flex;white-space:nowrap;animation:tmmScroll 30s linear infinite reverse;font-family:Bangers,Impact,sans-serif;font-size:26px;letter-spacing:.04em;color:var(--bg)}
+    .benefit-item{display:flex;gap:16px;padding-right:16px;align-items:center}
+
+    .compare{background:var(--bg);padding:56px 20px 60px;display:flex;flex-direction:column;align-items:center;gap:32px}
+    .compare h2{margin:0;text-align:center;font-family:Bangers,Impact,sans-serif;font-weight:400;font-size:42px;line-height:.98;letter-spacing:.02em;color:#fff;text-wrap:balance}
+    .compare h2 .red{color:var(--orange)}.compare h2 .green{color:var(--green)}
+    .compare-stack{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+    .compare-card{width:100%;background:#2E2E2E;border:4px solid #fff;border-radius:22px;overflow:hidden}
+    .compare-card.energy{box-shadow:7px 7px 0 var(--orange);transform:rotate(-1deg)}
+    .compare-card.raw{box-shadow:7px 7px 0 var(--green);transform:rotate(1deg)}
+    .compare-image{position:relative;height:220px;background-position:50% 50%;background-size:cover;background-repeat:no-repeat;border-bottom:4px solid #fff}
+    .compare-image.energy-bg{background-image:url('assets/energy-drinks-v3.webp')}.compare-image.raw-bg{background-image:url('assets/raw-coffee-crew-v3.webp');background-position:8% 50%}
+    .compare-tag{position:absolute;top:12px;background:var(--bg);color:#fff;border:3px solid var(--bg);border-radius:8px;padding:4px 10px;font-family:Bangers,Impact,sans-serif;font-size:22px;letter-spacing:.04em}
+    .compare-card.energy .compare-tag{left:12px;background:var(--orange)}.compare-card.raw .compare-tag{right:12px;background:var(--green);color:var(--bg)}
+    .compare-list{margin:0;padding:18px 20px;list-style:none;display:flex;flex-direction:column;gap:10px;font:700 17px/1.3 Arial;color:#fff}
+    .compare-list li{display:flex;gap:10px;align-items:baseline}.compare-list .x{color:var(--orange);font-family:Bangers,Impact,sans-serif;font-size:20px}.compare-list .check{color:var(--green);font-family:Bangers,Impact,sans-serif;font-size:20px}
+    .vs{width:64px;height:64px;border-radius:50%;background:var(--yellow);border:4px solid var(--bg);box-shadow:0 0 0 4px #fff;display:flex;align-items:center;justify-content:center;font-family:Bangers,Impact,sans-serif;font-size:30px;color:var(--bg);margin:-6px 0}
+
+    .discount{background:var(--purple);border-top:4px solid var(--bg);border-bottom:4px solid var(--bg);padding:32px 20px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+    .discount h3{margin:0;font-family:Bangers,Impact,sans-serif;font-weight:400;font-size:34px;line-height:1;letter-spacing:.02em;color:var(--yellow);-webkit-text-stroke:5px var(--bg);paint-order:stroke fill;text-shadow:3px 3px 0 var(--bg);text-wrap:balance}
+    .discount p{margin:0;font:700 16px/1.35 Arial;color:#fff;text-wrap:pretty}
+    .discount .countdown{gap:6px}.discount .timebox{border-radius:10px;padding:6px;min-width:56px}.discount .timebox .num{font-size:22px}.discount .timebox .lbl{font-size:9px;margin-top:3px}
+
+    .ugc{background:var(--bg);padding:70px 20px 40px}
+    .ugc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .ugc-title{margin:0;font-family:Bangers,Impact,sans-serif;font-weight:400;font-size:42px;line-height:1;color:var(--green)}
+    .ugc-nav{display:flex;gap:10px}
+    .ugc-nav button{width:46px;height:46px;border-radius:50%;background:var(--yellow);border:4px solid var(--bg);box-shadow:0 0 0 3px #fff,4px 4px 0 3px var(--bg);font:900 20px/1 'Arial Black',Arial;color:var(--bg)}
+    .ugc-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:8px 12px 14px 8px;margin:-8px -12px -14px -8px}
+    .ugc-track::-webkit-scrollbar{display:none}
+    .ugc-card{flex:0 0 84%;aspect-ratio:1/1;border:4px solid #fff;border-radius:18px;box-shadow:0 0 0 3px var(--bg),5px 5px 0 3px var(--blue);overflow:hidden;scroll-snap-align:start;background:#2E2E2E}
+    .ugc-card img{width:100%;height:100%;object-fit:cover;display:block}
+    .swipe-note{margin:16px 0 0;text-align:center;font:700 11px Arial;letter-spacing:.16em;color:#8A8A8A}
+
+    .testimonials{background:var(--bg);padding:40px 20px 70px}
+    .reviews{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 10px 14px 6px;margin:-6px -10px -14px -6px}
+    .reviews::-webkit-scrollbar{display:none}
+    .review{flex:0 0 84%;scroll-snap-align:start;margin:0;background:#2E2E2E;border:4px solid #fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:18px;justify-content:space-between;min-height:190px}
+    .review:nth-child(1){box-shadow:6px 6px 0 var(--green)}.review:nth-child(2){box-shadow:6px 6px 0 var(--blue)}.review:nth-child(3){box-shadow:6px 6px 0 var(--purple)}.review:nth-child(4){box-shadow:6px 6px 0 var(--cyan)}.review:nth-child(5){box-shadow:6px 6px 0 var(--yellow)}.review:nth-child(6){box-shadow:6px 6px 0 var(--orange)}
+    .review blockquote{margin:0;font:700 17px/1.4 Arial;color:#fff;text-wrap:pretty}.review figcaption{font:700 14px Arial}.review .muted{color:#B8B8B8;font-weight:400}
+
+    .gate{background:var(--blue);border-top:4px solid var(--bg);border-bottom:4px solid var(--bg);padding:48px 20px 56px;display:flex;flex-direction:column;gap:36px}
+    .gate-art{position:relative;padding:0 6px}.gate-image{height:300px;background:url('assets/fan-code-crew-v2.webp') 50% 40%/cover no-repeat;border:4px solid var(--bg);border-radius:22px;box-shadow:0 0 0 5px #fff,8px 8px 0 5px var(--bg);transform:rotate(-2deg)}
+    .boss-note{position:absolute;bottom:-18px;right:-4px;background:var(--yellow);border:3px solid var(--bg);border-radius:12px;padding:7px 12px;transform:rotate(5deg);box-shadow:4px 4px 0 var(--bg);font-family:Bangers,Impact,sans-serif;font-size:22px;color:var(--bg);letter-spacing:.03em}
+    .gate-card{background:#2E2E2E;border:4px solid var(--bg);border-radius:22px;box-shadow:0 0 0 4px #fff,8px 8px 0 4px var(--bg);padding:26px 20px;display:flex;flex-direction:column;gap:18px}
+    .gate-card h2{margin:0;font-family:Bangers,Impact,sans-serif;font-weight:400;font-size:48px;line-height:.95;letter-spacing:.02em;color:var(--green);-webkit-text-stroke:5px var(--bg);paint-order:stroke fill;text-shadow:4px 4px 0 var(--bg)}
+    .gate-card p{margin:0;font:400 16px/1.45 Arial;color:#fff;text-wrap:pretty}
+    .gate-expires{display:flex;flex-direction:column;gap:8px}.gate-expires .label{font:700 11px Arial;letter-spacing:.14em;color:var(--cyan)}
+    .gate-expires .timebox{
+      display:inline-flex;
+      flex-direction:row;
+      align-items:flex-end;
+      justify-content:center;
+      min-width:0;
+      padding:6px 8px;
+      border:2px solid #fff;
+      border-radius:8px;
+    }
+
+    .gate-expires .num{
+      font-size:18px;
+      line-height:1;
+    }
+
+    .gate-expires .lbl{
+      display:inline;
+      font-size:10px;
+      line-height:1;
+      letter-spacing:0;
+      margin:0 0 0 3px;
+    }
+    .lead-form{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .phone-row{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .submit-btn{
+      width:100%;
+    }
+    .lead-form > input[name="phone"]{
+      width:100%;
+      min-width:0;
+      height:60px;
+      border:3px solid var(--bg);
+      border-radius:14px;
+      padding:0 20px;
+      font:400 18px Arial;
+      color:var(--bg);
+      background:#fff;
+      outline:none;
+      box-shadow:0 0 0 3px #fff;
+    }
+
+    .lead-form > input[name="phone"]:focus{
+      box-shadow:0 0 0 4px var(--green);
+    }
+    .submit-btn{height:56px;padding:0 28px;background:var(--green);color:var(--bg);border:3px solid var(--bg);border-radius:14px;font-family:Bangers,Impact,sans-serif;font-size:28px;letter-spacing:.04em;box-shadow:4px 4px 0 var(--bg);white-space:nowrap}
+    .consent{display:flex;gap:14px;align-items:flex-start;cursor:pointer;background:var(--bg);border:2px solid #4A4A4A;border-radius:14px;padding:16px 18px}.consent input{flex:0 0 auto;width:22px;height:22px;margin:1px 0 0;accent-color:var(--green);cursor:pointer}.consent span{font:400 14px/1.5 Arial,sans-serif;color:#D0D0D0;text-wrap:pretty}
+    .error{font:700 14px Arial;color:#FF8A8A}.code-result{display:flex;flex-direction:column;gap:14px;animation:tmmPop .35s ease-out}.code-label{font:700 12px Arial;letter-spacing:.14em;color:var(--yellow)}.code-box{display:flex;align-items:center;justify-content:center;height:72px;background:var(--bg);border:4px dashed var(--yellow);border-radius:14px;font:900 30px 'Arial Black',Arial;letter-spacing:.12em;color:var(--yellow)}
+    .footer-top .button-pair.large{
+      width:auto;
+      flex:0 0 auto;
+    }
+    .footer{background:var(--bg);padding:48px 20px 32px;display:flex;flex-direction:column;gap:28px}.footer-logo{display:flex;flex-direction:column;align-items:center;gap:6px;font-family:Bangers,Impact,sans-serif;font-size:38px;letter-spacing:.03em;line-height:1;text-align:center}.footer-logo .g{color:var(--green)}.footer-logo .m{color:var(--blue)}.footer-logo .y{color:var(--yellow)}.footer-logo .x{color:#fff;font-size:26px}.footer-buttons{display:flex;justify-content:center}.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.badge{border:2px solid var(--green);color:var(--green);border-radius:100px;padding:7px 14px;font:700 12px Arial}.social{display:flex;justify-content:center;gap:24px;font:700 15px Arial}.social a{padding:12px 0}.legal{display:flex;flex-direction:column;gap:8px;border-top:2px solid #2E2E2E;padding-top:20px;text-align:center}.legal p{margin:0;font:400 12px/1.5 Arial;color:#9A9A9A}
+
+    .hidden{display:none!important}
+
+    @media (min-width:1200px){
+      .mobile-only{display:none}.desktop-only{display:block}
+      .ticker{height:44px}.ticker-track{font-size:24px}.ticker-item{gap:28px;padding-right:28px}
+      .hero{min-height:780px}.hero-bg{background-position:70% 30%}.hero-overlay{background:linear-gradient(90deg,#3C0A3C 0%,rgba(60,10,60,.92) 38%,rgba(60,10,60,.35) 70%,rgba(60,10,60,.15) 100%)}
+      .hero-inner{max-width:1280px;margin:0 auto;padding:64px 48px 72px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;text-align:left}
+      .hero-copy{display:flex;flex-direction:column;gap:28px;align-items:flex-start}.hero h1{font-size:112px}.hero p{font-size:24px;max-width:520px}.hero-product{min-height:620px;padding:0}.hero-glow{width:520px;height:520px}.pack-card{width:440px;border:5px solid var(--bg);border-radius:36px;padding:18px;box-shadow:0 0 0 6px #fff,12px 14px 0 6px var(--bg)}.fans-only{top:24px;right:0;width:120px;height:120px;border:4px solid var(--bg);box-shadow:5px 5px 0 var(--bg)}.fans-only .big{font-size:44px}.fans-only .small{font-size:20px}.fan-price{font-size:40px;padding:10px 20px}.countdown-wrap{align-items:flex-start}.countdown{gap:8px}.timebox{padding:8px 10px;min-width:74px;border:3px solid #fff;border-radius:12px}.timebox .num{font-size:36px}.timebox .lbl{font-size:11px;margin-top:4px}.button-pair.small .amazon,.button-pair.small .offer{padding:9px 14px 10px;font-size:14px}.button-pair.large .amazon{padding:16px 26px 18px;font-size:22px}.button-pair.large .offer{padding:16px 30px 18px;font-size:22px}
+
+      .benefits{height:72px;border-bottom:5px solid var(--bg)}.benefits-track{font-size:36px}.benefit-item{gap:22px;padding-right:22px}
+      .compare{padding:110px 48px 100px}.compare h2{font-size:72px;line-height:.95;max-width:1000px}.compare-stack{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:28px;align-items:center;width:100%;max-width:1280px}.compare-card{border-width:5px;border-radius:28px}.compare-card.energy{box-shadow:10px 10px 0 var(--orange);transform:rotate(-1.5deg)}.compare-card.raw{box-shadow:10px 10px 0 var(--green);transform:rotate(1.5deg)}.compare-image{height:430px;border-bottom-width:5px}.compare-tag{top:18px;font-size:28px;padding:6px 14px;border-radius:10px}.compare-card.energy .compare-tag{left:18px}.compare-card.raw .compare-tag{right:18px}.compare-list{padding:24px 28px;gap:12px;font-size:20px}.compare-list li{gap:12px}.compare-list .x,.compare-list .check{font-size:24px}.vs{width:84px;height:84px;font-size:38px}
+      .compare .button-pair.large.compare-cta{
+        width:auto;
+        flex:0 0 auto;
+      }
+
+      .compare .button-pair.large.compare-cta .offer{
+        flex:0 0 auto;
+      }
+      .discount{padding:40px 48px;display:block;text-align:left}.discount-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px}.discount-copy{display:flex;flex-direction:column;gap:8px;min-width:0;flex:0 0 680px;}.discount h3{font-size:46px;-webkit-text-stroke:6px var(--bg);text-shadow:4px 4px 0 var(--bg);text-wrap:balance}.discount p{font-size:19px}.discount-actions{display:flex;align-items:center;gap:28px;flex-shrink:0}.discount .countdown{gap:6px}.discount .timebox{  display:inline-flex;  flex-direction:column;  align-items:center;  justify-content:center;}.discount .timebox .num{font-size:26px}.discount .timebox .lbl{font-size:10px}
+
+      .ugc{padding:100px 48px 40px}.ugc-inner{max-width:1280px;margin:0 auto}.ugc-head{margin-bottom:40px}.ugc-title{font-size:64px}.ugc-nav{gap:14px}.ugc-nav button{width:60px;height:60px;font-size:26px}.ugc-track{gap:36px}.ugc-card{flex-basis:calc((100% - 72px)/3);border-width:5px;border-radius:18px}
+      .testimonials{padding:60px 48px 110px}.reviews{  display:grid;  grid-template-columns:repeat(3,minmax(0,1fr));  gap:28px;  width:100%;  max-width:1280px;  margin:0 auto;  overflow:visible;  padding:0}.review{min-height:0;flex:auto;border-width:4px;border-radius:22px;padding:30px;display:flex;gap:22px;box-shadow:none}.review:nth-child(1){box-shadow:7px 7px 0 var(--green)}.review:nth-child(2){box-shadow:7px 7px 0 var(--blue)}.review:nth-child(3){box-shadow:7px 7px 0 var(--purple)}.review:nth-child(4){box-shadow:7px 7px 0 var(--cyan)}.review:nth-child(5){box-shadow:7px 7px 0 var(--yellow)}.review:nth-child(6){box-shadow:7px 7px 0 var(--orange)}.review blockquote{font-size:20px}.review figcaption{font-size:15px}
+
+      .gate{padding:100px 48px}.gate-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}.gate-image{height:500px;border-width:5px;border-radius:30px;box-shadow:0 0 0 6px #fff,12px 12px 0 6px var(--bg)}.boss-note{bottom:-22px;right:-18px;border-width:4px;padding:10px 16px;font-size:28px}.gate-card{  border-width:5px;  border-radius:30px;  box-shadow:0 0 0 5px #fff,12px 12px 0 5px var(--bg);  padding:44px;  gap:24px;  position:relative;  top:10px;}.gate-card h2{font-size:72px}.gate-card p{font-size:18px}.gate-expires{
+        flex-direction:row;
+        align-items:center;
+        gap:14px
+      }
+
+      .gate-expires .label{
+        font-size:12px
+      }
+
+      .gate-expires .countdown{
+        gap:6px
+      }
+
+      .gate-expires .timebox{
+        display:inline-flex;
+        flex-direction:row;
+        align-items:flex-end;
+        justify-content:center;
+        min-width:0;
+        padding:5px 8px;
+        border:2px solid #fff;
+        border-radius:8px
+      }
+
+      .gate-expires .timebox .num{
+        font-size:20px;
+        line-height:1
+      }
+
+      .gate-expires .timebox .lbl{
+        display:inline;
+        font-size:10px;
+        line-height:1;
+        letter-spacing:0;
+        margin:0 0 0 3px
+      }
+
+      .phone-row{
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        gap:12px;
+      }
+
+      .phone-row input{
+        flex:1;
+        min-width:0;
+        width:auto;
+        height:60px;
+        border:3px solid var(--bg);
+        border-radius:14px;
+        padding:0 20px;
+        font:400 18px Arial;
+        color:var(--bg);
+        background:#fff;
+        outline:none;
+        box-shadow:0 0 0 3px #fff;
+      }
+
+      .phone-row input:focus{
+        box-shadow:0 0 0 4px var(--green);
+      }
+
+      .submit-btn{
+        width:auto;
+        flex:0 0 auto;
+        height:60px;
+        font-size:28px;
+      }
+
+      .submit-btn{
+        font-size:28px
+      }
+
+      .footer{padding:80px 48px 40px}.footer-inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:48px}.footer-top{display:flex;align-items:center;justify-content:space-between;gap:40px}.footer-logo{flex-direction:row;gap:16px;font-size:48px}.footer-logo .x{font-size:48px}.badges{justify-content:flex-start}.social{justify-content:flex-end}.legal{flex-direction:row;justify-content:space-between;align-items:flex-end;text-align:left}.legal p{font-size:13px}
+    }
+
+    @media (min-width:768px) and (max-width:1199px){
+      .hero h1{font-size:76px}.hero-inner{padding:48px 32px 60px}.hero p{font-size:20px}.pack-card{width:320px}.hero-product{padding-top:24px}.compare{padding-top:80px}.compare h2{font-size:56px}.compare-stack{max-width:900px}.gate{padding-left:32px;padding-right:32px}
+    }
+    .hero .button-pair.small{
+      min-width:198px;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MOBILE / TABLET -->
+  <div class="mobile-only">
+    <div class="ticker">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div>
+        <div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div>
+      </div>
+    </div>
+
+    <section class="hero" id="hero-mobile">
+      <div class="hero-bg"></div><div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <span class="eyebrow">EXCLUSIVE EDITION · RAW COFFEE+</span>
+        <h1>Take My Muffin <span class="yellow">&amp;</span> <span class="blue">Raw Gravity</span> Collab</h1>
+        <p>TMM fans get the discount.<br>Everyone else just gets the coffee.</p>
+        <button class="button-pair small" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button>
+        <div class="hero-product">
+          <div class="hero-glow"></div>
+          <div class="pack-card"><img src="assets/pack.webp" alt="TMM × Raw Gravity Raw coffee+ Exclusive Edition pack"></div>
+          <div class="fans-only"><span class="big">−25%</span><span class="small">FANS ONLY</span></div>
+        </div>
+        <div class="fan-price">Fan price: −25% off</div>
+        <div class="countdown-wrap">
+          <span class="countdown-label">FAN PRICE ENDS IN</span>
+          <div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">DAYS</span></span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">HRS</span></span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">MIN</span></span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">SEC</span></span></div>
+        </div>
+        <button class="button-pair large" type="button" data-scroll-form>
+          <span class="amazon">amazon</span>
+          <span class="offer">Get −25% off</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="benefits"><div class="benefits-track">
+      <div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div>
+      <div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div>
+    </div></div>
+
+    <section class="compare">
+      <h2>This is what <span class="red">energy drinks</span> do to you<br>This is what <br><span class="green">we do instead</span></h2>
+      <div class="compare-stack">
+        <article class="compare-card energy"><div class="compare-image energy-bg"><div class="compare-tag">On energy drinks</div></div><ul class="compare-list"><li><span class="x">✕</span>Loads of sugar</li><li><span class="x">✕</span>Shaky hands mid-raid</li><li><span class="x">✕</span>Sharp, short spike of energy</li><li><span class="x">✕</span>Hard crash by 2am</li></ul></article>
+        <div class="vs">VS</div>
+        <article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article>
+      </div>
+      <button class="button-pair large compare-cta" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button>
+    </section>
+
+    <section class="discount"><h3>Your fan price is still available — 25% off</h3><p>Get the collab before your feed spoils the restock news.</p><div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">DAYS</span></span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">HRS</span></span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">MIN</span></span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">SEC</span></span></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button></section>
+
+    <section class="ugc"><div class="ugc-head"><h2 class="ugc-title">Fans in the wild</h2><div class="ugc-nav"><button type="button" data-ugc-prev aria-label="Previous">←</button><button type="button" data-ugc-next aria-label="Next">→</button></div></div><div class="ugc-track" data-ugc-track>
+      <div class="ugc-card"><img src="assets/ugc-1.webp" alt="Raw Gravity lifestyle photo 1"></div><div class="ugc-card"><img src="assets/ugc-2.webp" alt="Raw Gravity lifestyle photo 2"></div><div class="ugc-card"><img src="assets/ugc-3.webp" alt="Raw Gravity lifestyle photo 3"></div><div class="ugc-card"><img src="assets/ugc-4.webp" alt="Raw Gravity lifestyle photo 4"></div><div class="ugc-card"><img src="assets/ugc-5.webp" alt="Raw Gravity lifestyle photo 5"></div><div class="ugc-card"><img src="assets/ugc-6.webp" alt="Raw Gravity lifestyle photo 6"></div>
+    </div><p class="swipe-note">SWIPE FOR MORE →</p></section>
+
+    <section class="testimonials"><div class="reviews">
+      <figure class="review"><blockquote>“Three raid nights in a row till 5am and I was still sharp. Didn't expect that from a coffee packet.”</blockquote><figcaption style="color:var(--green)">Dan M. <span class="muted">— dev, TMM fan</span></figcaption></figure>
+      <figure class="review"><blockquote>“Creatine in coffee sounds insane until you read the studies. Then it sounds obvious.”</blockquote><figcaption style="color:var(--blue)">r/nootropics <span class="muted">— verified purchase</span></figcaption></figure>
+      <figure class="review"><blockquote>“The collab packaging alone is worth it. That it also works is a bonus.”</blockquote><figcaption style="color:var(--yellow)">Alex T. <span class="muted">— 24</span></figcaption></figure>
+      <figure class="review"><blockquote>“No crash, no jitters, just steady focus through my whole shift.”</blockquote><figcaption style="color:var(--cyan)">Marco T. <span class="muted">— streamer</span></figcaption></figure>
+      <figure class="review"><blockquote>“I'm not a 'wellness' guy but this actually replaced my energy drink habit.”</blockquote><figcaption style="color:var(--green)">Jake R. <span class="muted">— 27</span></figcaption></figure>
+      <figure class="review"><blockquote>“Grabbed it for the TMM packaging, stayed for the focus during my study sessions.”</blockquote><figcaption style="color:var(--purple)">Nina K. <span class="muted">— 22</span></figcaption></figure>
+    </div><p class="swipe-note">SWIPE FOR MORE →</p></section>
+
+    <section class="gate" id="lead-form-mobile">
+      <div class="gate-art"><div class="gate-image"></div><div class="boss-note">The boss has your code ↓</div></div>
+      <div class="gate-card"><h2>Get your TMM <br>fan code</h2><p>Enter your phone number - your 25% fan discount code shows up right here.</p><div class="gate-expires"><span class="label">CODE EXPIRES IN</span><div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">D</span></span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">H</span></span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">M</span></span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">S</span></span></div></div>
+        <form class="lead-form" data-lead-form>
+          <input
+            name="phone"
+            type="tel"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="+1 (555) 123-4567"
+            aria-label="Phone number"
+            required
+          >
+
+          <label class="consent">
+            <input name="agree" type="checkbox">
+            <span>
+              I agree to receive recurring automated marketing text messages from Raw Gravity at the phone number provided.
+              Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to cancel, HELP for help.
+              View our <a href="#" aria-label="Privacy Policy">Privacy Policy</a> and
+              <a href="#" aria-label="Terms of Service">Terms of Service</a>.
+            </span>
+          </label>
+
+          <button class="submit-btn" type="submit">Get my code</button>
+
+          <div class="error hidden" data-error></div>
+        </form>
+        <div class="code-result hidden" data-code-result><span class="code-label">YOUR FAN CODE · −25%</span><div class="code-box" data-code>KORNEY25</div><button class="button-pair large" type="button" data-shop><span class="amazon">amazon</span><span class="offer" data-shop-label>Copied ✓ — shop now →</span></button></div>
+      </div>
+    </section>
+
+    <footer class="footer"><div class="footer-logo"><span><span class="g">Take </span><span class="m">my </span><span class="y">Muffin</span></span><span class="x">×</span><span>Raw Gravity</span></div><div class="footer-buttons"><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button></div><div class="badges"><span class="badge">Made in USA</span><span class="badge">Vegan Friendly</span><span class="badge">Non-GMO</span><span class="badge">No Proprietary Blends</span><span class="badge">Amazon Buyer Protection</span></div><div class="social"><a href="https://tiktok.com/@rawgravity.official" target="_blank" rel="noopener">TikTok</a><a href="https://instagram.com/rawgravity.official" target="_blank" rel="noopener">Instagram</a><a href="https://youtube.com/@rawgravity.official" target="_blank" rel="noopener">YouTube</a></div><div class="legal"><p>Dietary Supplement. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p><p>© 2026 Raw Gravity. All rights reserved.</p></div></footer>
+  </div>
+
+  <!-- DESKTOP -->
+  <div class="desktop-only">
+    <div class="ticker"><div class="ticker-track"><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div></div></div>
+
+    <section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-inner">
+      <div class="hero-copy"><button class="button-pair small" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button><span class="eyebrow">EXCLUSIVE EDITION · RAW COFFEE+</span><h1>Take My Muffin <span class="yellow">&amp;</span> <span class="blue">Raw Gravity</span> Collab</h1><p>TMM fans get the discount.<br>Everyone else just gets the coffee.</p><div><div class="fan-price">Fan price: −25% off</div></div><div class="countdown-wrap"><span class="countdown-label">FAN PRICE ENDS IN</span><div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">DAYS</span></span><span style="font:900 30px 'Arial Black';color:#fff;align-self:center">:</span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">HRS</span></span><span style="font:900 30px 'Arial Black';color:#fff;align-self:center">:</span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">MIN</span></span><span style="font:900 30px 'Arial Black';color:#fff;align-self:center">:</span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">SEC</span></span></div></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button></div>
+      <div class="hero-product"><div class="hero-glow"></div><div class="pack-card"><img src="assets/pack.webp" alt="TMM × Raw Gravity Raw coffee+ Exclusive Edition pack"></div><div class="fans-only"><span class="big">−25%</span><span class="small">FANS ONLY</span></div></div>
+    </div></section>
+
+    <div class="benefits"><div class="benefits-track"><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div></div></div>
+
+    <section class="compare"><h2>This is what <span class="red">energy drinks</span> do to you<br>This is what <span class="green">we do instead</span></h2><div class="compare-stack">
+      <article class="compare-card energy"><div class="compare-image energy-bg"><div class="compare-tag">On energy drinks</div></div><ul class="compare-list"><li><span class="x">✕</span>Loads of sugar</li><li><span class="x">✕</span>Shaky hands mid-raid</li><li><span class="x">✕</span>Sharp, short spike of energy</li><li><span class="x">✕</span>Hard crash by 2am</li></ul></article><div class="vs">VS</div><article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button></section>
+
+    <section class="discount"><div class="discount-inner"><div class="discount-copy"><h3>Your fan price is still available — 25% off</h3><p>Get the collab before your feed spoils<br>the restock news.</p></div><div class="discount-actions"><div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">DAYS</span></span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">HRS</span></span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">MIN</span></span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">SEC</span></span></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button></div></div></section>
+
+    <section class="ugc"><div class="ugc-inner"><div class="ugc-head"><h2 class="ugc-title">Fans in the wild</h2><div class="ugc-nav"><button type="button" data-ugc-prev aria-label="Previous">←</button><button type="button" data-ugc-next aria-label="Next">→</button></div></div><div class="ugc-track" data-ugc-track><div class="ugc-card"><img src="assets/ugc-1.webp" alt="Raw Gravity lifestyle photo 1"></div><div class="ugc-card"><img src="assets/ugc-2.webp" alt="Raw Gravity lifestyle photo 2"></div><div class="ugc-card"><img src="assets/ugc-3.webp" alt="Raw Gravity lifestyle photo 3"></div><div class="ugc-card"><img src="assets/ugc-4.webp" alt="Raw Gravity lifestyle photo 4"></div><div class="ugc-card"><img src="assets/ugc-5.webp" alt="Raw Gravity lifestyle photo 5"></div><div class="ugc-card"><img src="assets/ugc-6.webp" alt="Raw Gravity lifestyle photo 6"></div></div></div></section>
+
+    <section class="testimonials"><div class="reviews"><figure class="review"><blockquote>“Three raid nights in a row till 5am and I was still sharp. Didn't expect that from a coffee packet.”</blockquote><figcaption style="color:var(--green)">Dan M. <span class="muted">— dev, TMM fan</span></figcaption></figure><figure class="review"><blockquote>“Creatine in coffee sounds insane until you read the studies. Then it sounds obvious.”</blockquote><figcaption style="color:var(--blue)">r/nootropics <span class="muted">— verified purchase</span></figcaption></figure><figure class="review"><blockquote>“The collab packaging alone is worth it. That it also works is a bonus.”</blockquote><figcaption style="color:var(--yellow)">Alex T. <span class="muted">— 24</span></figcaption></figure><figure class="review"><blockquote>“No crash, no jitters, just steady focus through my whole shift.”</blockquote><figcaption style="color:var(--cyan)">Marco T. <span class="muted">— streamer</span></figcaption></figure><figure class="review"><blockquote>“I'm not a 'wellness' guy but this actually replaced my energy drink habit.”</blockquote><figcaption style="color:var(--green)">Jake R. <span class="muted">— 27</span></figcaption></figure><figure class="review"><blockquote>“Grabbed it for the TMM packaging, stayed for the focus during my study sessions.”</blockquote><figcaption style="color:var(--purple)">Nina K. <span class="muted">— 22</span></figcaption></figure></div></section>
+
+    <section class="gate" id="lead-form-desktop"><div class="gate-inner"><div class="gate-art"><div class="gate-image"></div><div class="boss-note">The boss has your code ↘</div></div><div class="gate-card"><h2>Get your TMM <br>fan code</h2><p>Enter your phone number - your 25% fan discount code <br>shows up right here.</p><div class="gate-expires"><span class="label">CODE EXPIRES IN</span><div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">D</span></span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">H</span></span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">M</span></span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">S</span></span></div></div><form class="lead-form" data-lead-form><div class="phone-row"><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+1 (555) 123-4567" aria-label="Phone number" required><button class="submit-btn" type="submit">Get my code</button></div><label class="consent"><input name="agree" type="checkbox"><span>I agree to receive recurring automated marketing text messages from Raw Gravity at the phone number provided. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to cancel, HELP for help. View our <a href="#" aria-label="Privacy Policy">Privacy Policy</a> and <a href="#" aria-label="Terms of Service">Terms of Service</a>.</span></label><div class="error hidden" data-error></div></form><div class="code-result hidden" data-code-result><span class="code-label">YOUR FAN CODE · −25%</span><div class="code-box" data-code>KORNEY25</div><button class="button-pair large" type="button" data-shop><span class="amazon">amazon</span><span class="offer" data-shop-label>Copied ✓ — shop now →</span></button></div></div></div></section>
+
+    <footer class="footer"><div class="footer-inner"><div class="footer-top"><div class="footer-logo"><span><span class="g">Take </span><span class="m">my </span><span class="y">Muffin</span></span><span class="x">×</span><span>Raw Gravity</span></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button></div><div class="badges"><span class="badge">Made in USA</span><span class="badge">Vegan Friendly</span><span class="badge">Non-GMO</span><span class="badge">No Proprietary Blends</span><span class="badge">Amazon Buyer Protection</span></div><div class="legal"><div><p>Dietary Supplement. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p><p>© 2026 Raw Gravity. All rights reserved.</p></div><div class="social"><a href="https://tiktok.com/@rawgravity.official" target="_blank" rel="noopener">TikTok</a><a href="https://instagram.com/rawgravity.official" target="_blank" rel="noopener">Instagram</a><a href="https://youtube.com/@rawgravity.official" target="_blank" rel="noopener">YouTube</a></div></div></div></footer>
+  </div>
+</div>
+
+<script>
+(() => {
+  const CONFIG = {
+    discountCode: 'KORNEY25',
+    amazonUrl: '', // Add final Amazon Attribution URL later.
+    sourceParam: 'source',
+    sourceStorageKey: 'tmm3_source',
+    timerStorageKey: 'tmm3_timer_anchor',
+    timerPeriodMs: (2 * 86400 + 4 * 3600 + 45) * 1000,
+  };
+
+  function getSource() {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get(CONFIG.sourceParam);
+    if (fromUrl) {
+      try { localStorage.setItem(CONFIG.sourceStorageKey, fromUrl); } catch (_) {}
+      return fromUrl;
+    }
+    try { return localStorage.getItem(CONFIG.sourceStorageKey) || ''; } catch (_) { return ''; }
+  }
+
+  function getAmazonUrl() {
+    if (!CONFIG.amazonUrl) return '#';
+    const source = getSource();
+    try {
+      const url = new URL(CONFIG.amazonUrl);
+      if (source) url.searchParams.set(CONFIG.sourceParam, source);
+      return url.toString();
+    } catch (_) {
+      return CONFIG.amazonUrl;
+    }
+  }
+
+  function wireAmazonLinks() {
+    document.querySelectorAll('[data-amazon]').forEach((el) => {
+      el.href = getAmazonUrl();
+    });
+  }
+
+  function ensureTimerAnchor() {
+    let anchor = 0;
+    try { anchor = Number(localStorage.getItem(CONFIG.timerStorageKey) || 0); } catch (_) {}
+    if (!anchor) {
+      anchor = Date.now();
+      try { localStorage.setItem(CONFIG.timerStorageKey, String(anchor)); } catch (_) {}
+    }
+    return anchor;
+  }
+
+  const timerAnchor = ensureTimerAnchor();
+
+  function getTimeLeft() {
+    const elapsed = Date.now() - timerAnchor;
+    const left = Math.ceil((CONFIG.timerPeriodMs - (elapsed % CONFIG.timerPeriodMs)) / 1000);
+    return {
+      d: Math.floor(left / 86400),
+      h: Math.floor((left % 86400) / 3600),
+      m: Math.floor((left % 3600) / 60),
+      s: left % 60,
+    };
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function renderTimer() {
+    const t = getTimeLeft();
+    document.querySelectorAll('[data-days]').forEach(el => el.textContent = pad(t.d));
+    document.querySelectorAll('[data-hours]').forEach(el => el.textContent = pad(t.h));
+    document.querySelectorAll('[data-minutes]').forEach(el => el.textContent = pad(t.m));
+    document.querySelectorAll('[data-seconds]').forEach(el => el.textContent = pad(t.s));
+  }
+  renderTimer();
+  setInterval(renderTimer, 1000);
+
+  function scrollToForm() {
+    const target = window.innerWidth >= 1200 ? document.getElementById('lead-form-desktop') : document.getElementById('lead-form-mobile');
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => target.querySelector('input[name="phone"]')?.focus({ preventScroll: true }), 700);
+  }
+  document.querySelectorAll('[data-scroll-form]').forEach(btn => btn.addEventListener('click', scrollToForm));
+
+  function setupUgc() {
+    document.querySelectorAll('.ugc').forEach(section => {
+      const track = section.querySelector('[data-ugc-track]');
+      const prev = section.querySelector('[data-ugc-prev]');
+      const next = section.querySelector('[data-ugc-next]');
+
+      if (!track || !prev || !next) return;
+
+      const getStep = () => {
+        const card = track.querySelector('.ugc-card');
+        if (!card) return 0;
+
+        const cardWidth = card.getBoundingClientRect().width;
+        const styles = getComputedStyle(track);
+        const gap = parseFloat(styles.columnGap || styles.gap) || 18;
+
+        return cardWidth + gap;
+      };
+
+      prev.addEventListener('click', () => {
+        track.scrollBy({
+          left: -getStep(),
+          behavior: 'smooth'
+        });
+      });
+
+      next.addEventListener('click', () => {
+        const step = getStep();
+        if (!step) return;
+
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+          track.scrollTo({
+            left: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          track.scrollBy({
+            left: step,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+  setupUgc();
+
+  function setupForms() {
+    document.querySelectorAll('[data-lead-form]').forEach(form => {
+      const error = form.querySelector('[data-error]');
+      const result = form.closest('.gate-card')?.querySelector('[data-code-result]');
+      const phone = form.querySelector('input[name="phone"]');
+      const agree = form.querySelector('input[name="agree"]');
+      const shop = form.closest('.gate-card')?.querySelector('[data-shop]');
+      const shopLabel = form.closest('.gate-card')?.querySelector('[data-shop-label]');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        error.classList.add('hidden');
+        const digits = phone.value.replace(/\D/g, '');
+        if (digits.length < 10) { error.textContent = 'That number looks off — try again.'; error.classList.remove('hidden'); return; }
+        if (!agree.checked) { error.textContent = 'Please check the box to get your code.'; error.classList.remove('hidden'); return; }
+
+        // Klaviyo integration will be added here once the API/list details are supplied.
+        // Keep the source available for that request via getSource().
+        result.querySelector('[data-code]').textContent = CONFIG.discountCode;
+        form.classList.add('hidden');
+        result.classList.remove('hidden');
+      });
+
+      shop?.addEventListener('click', () => {
+        const url = getAmazonUrl();
+        if (CONFIG.amazonUrl) {
+          try { navigator.clipboard.writeText(CONFIG.discountCode); } catch (_) {}
+          window.open(url, '_blank', 'noopener');
+          if (shopLabel) shopLabel.textContent = 'Code copied ✓ — shop now →';
+        } else {
+          if (shopLabel) shopLabel.textContent = 'Add Amazon link later →';
+        }
+      });
+    });
+  }
+  setupForms();
+  getSource();
+  wireAmazonLinks();
+})();
+</script>
+</body>
+</html>
