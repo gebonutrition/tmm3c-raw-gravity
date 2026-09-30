@@ -441,40 +441,15 @@
 (() => {
   const CONFIG = {
     discountCode: 'KORNEY25',
-    amazonUrl: '', // Add final Amazon Attribution URL later.
-    sourceParam: 'source',
-    sourceStorageKey: 'tmm3_source',
+
+    amazonUrl:
+      'https://www.amazon.com/dp/B0GTWJ3K1R?maas=maas_adg_51826418DEDC265567C29665301C26A7_afap_abs&ref_=aa_maas&tag=maas',
+
     timerStorageKey: 'tmm3_timer_anchor',
-    timerPeriodMs: (2 * 86400 + 4 * 3600 + 45) * 1000,
+
+    timerPeriodMs:
+      (2 * 86400 + 4 * 3600 + 45) * 1000,
   };
-
-  function getSource() {
-    const params = new URLSearchParams(window.location.search);
-    const fromUrl = params.get(CONFIG.sourceParam);
-    if (fromUrl) {
-      try { localStorage.setItem(CONFIG.sourceStorageKey, fromUrl); } catch (_) {}
-      return fromUrl;
-    }
-    try { return localStorage.getItem(CONFIG.sourceStorageKey) || ''; } catch (_) { return ''; }
-  }
-
-  function getAmazonUrl() {
-    if (!CONFIG.amazonUrl) return '#';
-    const source = getSource();
-    try {
-      const url = new URL(CONFIG.amazonUrl);
-      if (source) url.searchParams.set(CONFIG.sourceParam, source);
-      return url.toString();
-    } catch (_) {
-      return CONFIG.amazonUrl;
-    }
-  }
-
-  function wireAmazonLinks() {
-    document.querySelectorAll('[data-amazon]').forEach((el) => {
-      el.href = getAmazonUrl();
-    });
-  }
 
   function ensureTimerAnchor() {
     let anchor = 0;
@@ -566,43 +541,196 @@
   setupUgc();
 
   function setupForms() {
-    document.querySelectorAll('[data-lead-form]').forEach(form => {
-      const error = form.querySelector('[data-error]');
-      const result = form.closest('.gate-card')?.querySelector('[data-code-result]');
-      const phone = form.querySelector('input[name="phone"]');
-      const agree = form.querySelector('input[name="agree"]');
-      const shop = form.closest('.gate-card')?.querySelector('[data-shop]');
-      const shopLabel = form.closest('.gate-card')?.querySelector('[data-shop-label]');
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        error.classList.add('hidden');
-        const digits = phone.value.replace(/\D/g, '');
-        if (digits.length < 10) { error.textContent = 'That number looks off — try again.'; error.classList.remove('hidden'); return; }
-        if (!agree.checked) { error.textContent = 'Please check the box to get your code.'; error.classList.remove('hidden'); return; }
+    document
+      .querySelectorAll('[data-lead-form]')
+      .forEach(form => {
 
-        // Klaviyo integration will be added here once the API/list details are supplied.
-        // Keep the source available for that request via getSource().
-        result.querySelector('[data-code]').textContent = CONFIG.discountCode;
-        form.classList.add('hidden');
-        result.classList.remove('hidden');
+        const error =
+          form.querySelector('[data-error]');
+
+        const result =
+          form
+            .closest('.gate-card')
+            ?.querySelector('[data-code-result]');
+
+        const phone =
+          form.querySelector('input[name="phone"]');
+
+        const agree =
+          form.querySelector('input[name="agree"]');
+
+        const shop =
+          form
+            .closest('.gate-card')
+            ?.querySelector('[data-shop]');
+
+        const shopLabel =
+          form
+            .closest('.gate-card')
+            ?.querySelector('[data-shop-label]');
+
+
+        form.addEventListener(
+          'submit',
+          async (e) => {
+
+            e.preventDefault();
+
+            error.classList.add('hidden');
+
+            const digits =
+              phone.value.replace(/\D/g, '');
+
+
+            if (digits.length < 10) {
+
+              error.textContent =
+                'That number looks off — try again.';
+
+              error.classList.remove('hidden');
+
+              return;
+            }
+
+
+            if (!agree.checked) {
+
+              error.textContent =
+                'Please check the box to get your code.';
+
+              error.classList.remove('hidden');
+
+              return;
+            }
+
+
+            const submitButton =
+              form.querySelector('.submit-btn');
+
+            if (submitButton) {
+              submitButton.disabled = true;
+              submitButton.textContent =
+                'Please wait...';
+            }
+
+
+            try {
+
+              const response =
+                await fetch(
+                  '/api/subscribe',
+                  {
+                    method: 'POST',
+
+                    headers: {
+                      'Content-Type':
+                        'application/json'
+                    },
+
+                    body: JSON.stringify({
+                      phone: digits
+                    })
+                  }
+                );
+
+
+              const responseText =
+                await response.text();
+
+
+              let data;
+
+              try {
+                data =
+                  JSON.parse(responseText);
+              } catch {
+                data = {
+                  ok: false,
+                  error: responseText
+                };
+              }
+
+
+              if (
+                !response.ok ||
+                !data.ok
+              ) {
+
+                throw new Error(
+                  data.error ||
+                  'Klaviyo submission failed'
+                );
+              }
+
+
+              result
+                .querySelector('[data-code]')
+                .textContent =
+                  CONFIG.discountCode;
+
+
+              form.classList.add('hidden');
+
+              result.classList.remove('hidden');
+
+
+            } catch (requestError) {
+
+              console.error(
+                'Klaviyo submission error:',
+                requestError
+              );
+
+              error.textContent =
+                requestError.message ||
+                'Something went wrong. Please try again.';
+
+              error.classList.remove('hidden');
+
+              if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent =
+                  'Get my code';
+              }
+
+            }
+
+          }
+        );
+
+
+        shop?.addEventListener(
+          'click',
+          async () => {
+
+            try {
+
+              await navigator.clipboard.writeText(
+                CONFIG.discountCode
+              );
+
+            } catch (_) {}
+
+
+            if (shopLabel) {
+              shopLabel.textContent =
+                'Code copied ✓ — shop now →';
+            }
+
+
+            window.open(
+              CONFIG.amazonUrl,
+              '_blank',
+              'noopener'
+            );
+
+          }
+        );
+
       });
-
-      shop?.addEventListener('click', () => {
-        const url = getAmazonUrl();
-        if (CONFIG.amazonUrl) {
-          try { navigator.clipboard.writeText(CONFIG.discountCode); } catch (_) {}
-          window.open(url, '_blank', 'noopener');
-          if (shopLabel) shopLabel.textContent = 'Code copied ✓ — shop now →';
-        } else {
-          if (shopLabel) shopLabel.textContent = 'Add Amazon link later →';
-        }
-      });
-    });
   }
   setupForms();
-  getSource();
-  wireAmazonLinks();
 })();
 </script>
 </body>
