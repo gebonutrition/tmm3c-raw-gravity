@@ -7,7 +7,108 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { phone } = req.body || {};
+    const { phone, email } = req.body || {};
+
+	// EMAIL COMMUNITY SIGNUP
+	if (typeof email === "string") {
+	  const normalizedEmail = email.trim().toLowerCase();
+
+	  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+	  if (
+		normalizedEmail.length > 254 ||
+		!emailPattern.test(normalizedEmail)
+	  ) {
+		return res.status(400).json({
+		  ok: false,
+		  error: "Enter a valid email address"
+		});
+	  }
+
+	  const apiKey = process.env.KLAVIYO_PRIVATE_API_KEY;
+
+	  if (!apiKey) {
+		console.error("Klaviyo API key is not configured");
+
+		return res.status(500).json({
+		  ok: false,
+		  error: "Email signup is temporarily unavailable"
+		});
+	  }
+
+	  const response = await fetch(
+		"https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs",
+		{
+		  method: "POST",
+
+		  headers: {
+			Authorization: `Klaviyo-API-Key ${apiKey}`,
+			Accept: "application/vnd.api+json",
+			"Content-Type": "application/vnd.api+json",
+			Revision: "2026-07-15"
+		  },
+
+		  body: JSON.stringify({
+			data: {
+			  type: "profile-subscription-bulk-create-job",
+
+			  attributes: {
+				profiles: {
+				  data: [
+					{
+					  type: "profile",
+
+					  attributes: {
+						email: normalizedEmail,
+
+						subscriptions: {
+						  email: {
+							marketing: {
+							  consent: "SUBSCRIBED"
+							}
+						  }
+						}
+					  }
+					}
+				  ]
+				},
+
+				historical_import: false
+			  },
+
+			  relationships: {
+				list: {
+				  data: {
+					type: "list",
+					id: "T5Wm7i"
+				  }
+				}
+			  }
+			}
+		  })
+		}
+	  );
+
+	  const responseText = await response.text();
+
+	  if (!response.ok) {
+		console.error(
+		  "Klaviyo email subscription error:",
+		  response.status,
+		  responseText
+		);
+
+		return res.status(502).json({
+		  ok: false,
+		  error: "Unable to subscribe right now. Please try again."
+		});
+	  }
+
+	  return res.status(200).json({
+		ok: true,
+		message: "Subscription request accepted"
+	  });
+	}
 
     if (typeof phone !== "string") {
       return res.status(400).json({
