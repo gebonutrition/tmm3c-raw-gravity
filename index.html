@@ -28,8 +28,35 @@
     .mobile-only{display:block}.desktop-only{display:none}
 
     .ticker{background:var(--bg);border-bottom:3px solid var(--green);height:36px;overflow:hidden;display:flex;align-items:center}
-    .ticker-track{display:flex;white-space:nowrap;animation:tmmScroll 30s linear infinite;font-family:Bangers,Impact,sans-serif;font-size:18px;letter-spacing:.06em}
-    .ticker-item{display:flex;gap:18px;padding-right:18px}
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      max-width: none;
+      flex: 0 0 auto;
+      white-space: nowrap;
+
+      animation: tmmScroll 30s linear infinite;
+
+      font-family: Bangers, Impact, sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+    }
+
+    .ticker-item {
+      display: flex;
+      flex: 0 0 auto;
+      gap: 18px;
+      padding-right: 18px;
+      white-space: nowrap;
+    }
+
+    /* A complete, repeated sequence inside an infinite marquee */
+    .marquee-sequence {
+      display: flex;
+      flex: 0 0 auto;
+      width: max-content;
+      align-items: center;
+    }
     .ticker-green{color:var(--green)}.ticker-yellow{color:var(--yellow)}
 
     .hero{position:relative;background:#3C0A3C;overflow:hidden;border-bottom:5px solid var(--bg)}
@@ -88,8 +115,29 @@
     .timebox .lbl{font:700 10px Arial;letter-spacing:.12em;color:#fff;margin-top:4px}
 
     .benefits{background:var(--yellow);border-bottom:4px solid var(--bg);height:52px;overflow:hidden;display:flex;align-items:center}
-    .benefits-track{display:flex;white-space:nowrap;animation:tmmScroll 30s linear infinite reverse;font-family:Bangers,Impact,sans-serif;font-size:26px;letter-spacing:.04em;color:var(--bg)}
-    .benefit-item{display:flex;gap:16px;padding-right:16px;align-items:center}
+    .benefits-track {
+      display: flex;
+      width: max-content;
+      max-width: none;
+      flex: 0 0 auto;
+      white-space: nowrap;
+
+      animation: tmmScroll 30s linear infinite reverse;
+
+      font-family: Bangers, Impact, sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.04em;
+      color: var(--bg);
+    }
+
+    .benefit-item {
+      display: flex;
+      flex: 0 0 auto;
+      gap: 16px;
+      padding-right: 16px;
+      align-items: center;
+      white-space: nowrap;
+    }
 
     .compare{background:var(--bg);padding:56px 20px 60px;display:flex;flex-direction:column;align-items:center;gap:32px}
     .compare h2{margin:0;text-align:center;font-family:Bangers,Impact,sans-serif;font-weight:400;font-size:42px;line-height:.98;letter-spacing:.02em;color:#fff;text-wrap:balance}
@@ -439,6 +487,85 @@
 
 <script>
 (() => {
+    /* INFINITE MARQUEES */
+    function setupInfiniteMarquees() {
+      const tracks = document.querySelectorAll(
+        ".ticker-track, .benefits-track"
+      );
+
+      let resizeTimer;
+
+      function rebuildMarquees() {
+        tracks.forEach((track) => {
+          // Do not measure responsive sections that are currently hidden.
+          if (!track.getClientRects().length) {
+            return;
+          }
+
+          // Preserve the original content for subsequent rebuilds.
+          if (!track._marqueeTemplates) {
+            track._marqueeTemplates = Array.from(
+              track.children
+            ).map((item) => item.cloneNode(true));
+          }
+
+          const templates = track._marqueeTemplates;
+
+          if (!templates.length) {
+            return;
+          }
+
+          const sequence = document.createElement("div");
+          sequence.className = "marquee-sequence";
+
+          // Build one sequence wide enough to cover the viewport.
+          track.replaceChildren(sequence);
+
+          const targetWidth = Math.max(
+            window.innerWidth * 1.3,
+            1200
+          );
+
+          let batches = 0;
+
+          while (
+            sequence.scrollWidth < targetWidth &&
+            batches < 30
+          ) {
+            templates.forEach((template) => {
+              sequence.appendChild(
+                template.cloneNode(true)
+              );
+            });
+
+            batches++;
+          }
+
+          // Two identical sequences create a seamless loop.
+          track.appendChild(
+            sequence.cloneNode(true)
+          );
+
+          // Restart the animation after rebuilding the track.
+          track.style.animation = "none";
+          void track.offsetWidth;
+          track.style.animation = "";
+        });
+      }
+
+      rebuildMarquees();
+
+      // Recalculate the sequence when the viewport changes.
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+          rebuildMarquees();
+        }, 200);
+      });
+    }
+
+    setupInfiniteMarquees();
   const CONFIG = {
     discountCode: 'KORNEY25',
 
