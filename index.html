@@ -249,7 +249,189 @@
     .footer{background:var(--bg);padding:48px 20px 32px;display:flex;flex-direction:column;gap:28px}.footer-logo{display:flex;flex-direction:column;align-items:center;gap:6px;font-family:Bangers,Impact,sans-serif;font-size:38px;letter-spacing:.03em;line-height:1;text-align:center}.footer-logo .g{color:var(--green)}.footer-logo .m{color:var(--blue)}.footer-logo .y{color:var(--yellow)}.footer-logo .x{color:#fff;font-size:26px}.footer-buttons{display:flex;justify-content:center}.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.badge{border:2px solid var(--green);color:var(--green);border-radius:100px;padding:7px 14px;font:700 12px Arial}.social{display:flex;justify-content:center;gap:24px;font:700 15px Arial}.social a{padding:12px 0}.legal{display:flex;flex-direction:column;gap:8px;border-top:2px solid #2E2E2E;padding-top:20px;text-align:center}.legal p{margin:0;font:400 12px/1.5 Arial;color:#9A9A9A}
 
         /* RAW GRAVITY COMMUNITY */
+    
+        /* COMMUNITY PURCHASE OFFER */
 
+    .community-purchase-section {
+      background: linear-gradient(
+        110deg,
+        #274879 0%,
+        #17243e 55%,
+        #0e1423 100%
+      );
+      padding: 22px 20px 70px;
+      border-bottom: 1px solid #252525;
+    }
+
+    .community-purchase-inner {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .community-purchase-art {
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: .92;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #17243e;
+    }
+
+    .community-purchase-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .community-purchase-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .community-purchase-copy h2 {
+      margin: 0;
+      color: #fff;
+      font: 400 48px/.95 Bangers, Impact, sans-serif;
+      letter-spacing: .01em;
+      text-wrap: balance;
+    }
+
+    .purchase-green {
+      color: var(--green);
+    }
+
+    .purchase-yellow {
+      color: var(--yellow);
+    }
+
+    .community-purchase-countdown {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .community-purchase-label {
+      color: #A9B3C7;
+      font: 700 10px/1.3 Arial, sans-serif;
+      letter-spacing: .16em;
+    }
+
+    .community-purchase-countdown .countdown {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 6px;
+    }
+
+    .community-purchase-countdown .timebox {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: center;
+      min-width: 0;
+      padding: 6px 8px;
+      background: #10192b;
+      border: 2px solid #28354d;
+      border-radius: 8px;
+    }
+
+    .community-purchase-countdown .num {
+      color: #fff;
+      font: 900 19px/1 Arial, sans-serif;
+    }
+
+    .community-purchase-countdown .lbl {
+      display: inline;
+      margin: 0 0 0 3px;
+      color: var(--yellow);
+      font: 700 10px/1 Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .community-purchase-cta {
+      width: auto;
+      max-width: 100%;
+      margin-top: 2px;
+      text-decoration: none;
+    }
+
+    .community-purchase-cta .amazon {
+      padding: 17px 26px 19px;
+    }
+
+    .community-purchase-cta .offer {
+      padding: 17px 30px 19px;
+    }
+
+    @media (min-width: 1200px) {
+      .community-purchase-section {
+        min-height: 620px;
+        padding: 22px 48px 70px;
+      }
+
+      .community-purchase-inner {
+        min-height: 528px;
+        grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+        gap: 58px;
+      }
+
+      .community-purchase-art {
+        width: 100%;
+        max-width: 470px;
+        aspect-ratio: .92;
+        border-radius: 28px;
+      }
+
+      .community-purchase-copy {
+        gap: 28px;
+      }
+
+      .community-purchase-copy h2 {
+        font-size: 76px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .community-purchase-copy {
+        align-items: center;
+        text-align: center;
+      }
+
+      .community-purchase-copy h2 {
+        font-size: 42px;
+      }
+
+      .community-purchase-countdown {
+        justify-content: center;
+      }
+
+      .community-purchase-cta {
+        width: 100%;
+      }
+
+      .community-purchase-cta .amazon {
+        padding: 15px 12px;
+        font-size: 16px;
+      }
+
+      .community-purchase-cta .offer {
+        padding: 15px 12px;
+        font-size: 16px;
+      }
+    }
+    
+    
     .community-section {
       background: #0B0B0D;
       border-top: 1px solid #292929;
@@ -643,7 +825,61 @@
       <figure class="review"><blockquote>“I'm not a 'wellness' guy but this actually replaced my energy drink habit.”</blockquote><figcaption style="color:var(--green)">Jake R. <span class="muted">— 27</span></figcaption></figure>
       <figure class="review"><blockquote>“Grabbed it for the TMM packaging, stayed for the focus during my study sessions.”</blockquote><figcaption style="color:var(--purple)">Nina K. <span class="muted">— 22</span></figcaption></figure>
     </div><p class="swipe-note">SWIPE FOR MORE →</p></section>
+    <section class="community-purchase-section">
+      <div class="community-purchase-inner">
 
+        <div class="community-purchase-art">
+          <img
+            src="assets/fan-code-crew-v2.webp"
+            alt="Take My Muffin and Raw Gravity coffee collaboration"
+          >
+        </div>
+
+        <div class="community-purchase-copy">
+          <h2>
+            TRY <span class="purchase-green">RAW COFFEE</span><br>
+            NOW WITH <span class="purchase-yellow">−25%</span>
+          </h2>
+
+          <div class="community-purchase-countdown">
+            <span class="community-purchase-label">FAN PRICE ENDS IN</span>
+
+            <div class="countdown">
+              <span class="timebox">
+                <span class="num" data-days>00</span>
+                <span class="lbl">D</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-hours>00</span>
+                <span class="lbl">H</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-minutes>00</span>
+                <span class="lbl">M</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-seconds>00</span>
+                <span class="lbl">S</span>
+              </span>
+            </div>
+          </div>
+
+          <a
+            class="button-pair large community-purchase-cta"
+            href="https://www.amazon.com/dp/B0GTWJ3K1R?maas=maas_adg_799ABB226F6E59DBE055DECE8147C7A5_afap_abs&amp;ref_=aa_maas&amp;tag=maas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="amazon">amazon</span>
+            <span class="offer">Try Raw Coffee now</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
     <section class="community-section" id="lead-form-mobile">
       <div class="community-inner">
 
@@ -720,7 +956,61 @@
     <section class="ugc"><div class="ugc-inner"><div class="ugc-head"><h2 class="ugc-title">Fans in the wild</h2><div class="ugc-nav"><button type="button" data-ugc-prev aria-label="Previous">←</button><button type="button" data-ugc-next aria-label="Next">→</button></div></div><div class="ugc-track" data-ugc-track><div class="ugc-card"><img src="assets/ugc-1.webp" alt="Raw Gravity lifestyle photo 1"></div><div class="ugc-card"><img src="assets/ugc-2.webp" alt="Raw Gravity lifestyle photo 2"></div><div class="ugc-card"><img src="assets/ugc-3.webp" alt="Raw Gravity lifestyle photo 3"></div><div class="ugc-card"><img src="assets/ugc-4.webp" alt="Raw Gravity lifestyle photo 4"></div><div class="ugc-card"><img src="assets/ugc-5.webp" alt="Raw Gravity lifestyle photo 5"></div><div class="ugc-card"><img src="assets/ugc-6.webp" alt="Raw Gravity lifestyle photo 6"></div></div></div></section>
 
     <section class="testimonials"><div class="reviews"><figure class="review"><blockquote>“Three raid nights in a row till 5am and I was still sharp. Didn't expect that from a coffee packet.”</blockquote><figcaption style="color:var(--green)">Dan M. <span class="muted">— dev, TMM fan</span></figcaption></figure><figure class="review"><blockquote>“Creatine in coffee sounds insane until you read the studies. Then it sounds obvious.”</blockquote><figcaption style="color:var(--blue)">r/nootropics <span class="muted">— verified purchase</span></figcaption></figure><figure class="review"><blockquote>“The collab packaging alone is worth it. That it also works is a bonus.”</blockquote><figcaption style="color:var(--yellow)">Alex T. <span class="muted">— 24</span></figcaption></figure><figure class="review"><blockquote>“No crash, no jitters, just steady focus through my whole shift.”</blockquote><figcaption style="color:var(--cyan)">Marco T. <span class="muted">— streamer</span></figcaption></figure><figure class="review"><blockquote>“I'm not a 'wellness' guy but this actually replaced my energy drink habit.”</blockquote><figcaption style="color:var(--green)">Jake R. <span class="muted">— 27</span></figcaption></figure><figure class="review"><blockquote>“Grabbed it for the TMM packaging, stayed for the focus during my study sessions.”</blockquote><figcaption style="color:var(--purple)">Nina K. <span class="muted">— 22</span></figcaption></figure></div></section>
+    <section class="community-purchase-section">
+      <div class="community-purchase-inner">
 
+        <div class="community-purchase-art">
+          <img
+            src="assets/fan-code-crew-v2.webp"
+            alt="Take My Muffin and Raw Gravity coffee collaboration"
+          >
+        </div>
+
+        <div class="community-purchase-copy">
+          <h2>
+            TRY <span class="purchase-green">RAW COFFEE</span><br>
+            NOW WITH <span class="purchase-yellow">−25%</span>
+          </h2>
+
+          <div class="community-purchase-countdown">
+            <span class="community-purchase-label">FAN PRICE ENDS IN</span>
+
+            <div class="countdown">
+              <span class="timebox">
+                <span class="num" data-days>00</span>
+                <span class="lbl">D</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-hours>00</span>
+                <span class="lbl">H</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-minutes>00</span>
+                <span class="lbl">M</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-seconds>00</span>
+                <span class="lbl">S</span>
+              </span>
+            </div>
+          </div>
+
+          <a
+            class="button-pair large community-purchase-cta"
+            href="https://www.amazon.com/dp/B0GTWJ3K1R?maas=maas_adg_799ABB226F6E59DBE055DECE8147C7A5_afap_abs&amp;ref_=aa_maas&amp;tag=maas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="amazon">amazon</span>
+            <span class="offer">Try Raw Coffee now</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
     <section class="community-section" id="lead-form-desktop">
       <div class="community-inner">
 
