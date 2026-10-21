@@ -376,7 +376,7 @@
         <span class="eyebrow">EXCLUSIVE EDITION · RAW COFFEE+</span>
         <h1>Take My Muffin <span class="yellow">&amp;</span> <span class="blue">Raw Gravity</span> Collab</h1>
         <p>TMM fans get the discount.<br>Everyone else just gets the coffee.</p>
-        <button class="button-pair small" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Get −25% off</span></button>
+        <button class="button-pair small" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon with 25% off</span></button>
         <div class="hero-product">
           <div class="hero-glow"></div>
           <div class="pack-card"><img src="assets/pack.webp" alt="TMM × Raw Gravity Raw coffee+ Exclusive Edition pack"></div>
@@ -570,7 +570,7 @@
     discountCode: 'KORNEY25',
 
     amazonUrl:
-      'https://www.amazon.com/dp/B0GTWJ3K1R?maas=maas_adg_51826418DEDC265567C29665301C26A7_afap_abs&ref_=aa_maas&tag=maas',
+      'https://www.amazon.com/dp/B0GTWJ3K1R?maas=maas_adg_799ABB226F6E59DBE055DECE8147C7A5_afap_abs&ref_=aa_maas&tag=maas',
 
     timerStorageKey: 'tmm3_timer_anchor',
 
@@ -613,13 +613,19 @@
   renderTimer();
   setInterval(renderTimer, 1000);
 
-  function scrollToForm() {
-    const target = window.innerWidth >= 1200 ? document.getElementById('lead-form-desktop') : document.getElementById('lead-form-mobile');
-    if (!target) return;
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(() => target.querySelector('input[name="phone"]')?.focus({ preventScroll: true }), 700);
+  function openAmazonFromCta() {
+    window.open(
+      CONFIG.amazonUrl,
+      '_blank',
+      'noopener,noreferrer'
+    );
   }
-  document.querySelectorAll('[data-scroll-form]').forEach(btn => btn.addEventListener('click', scrollToForm));
+
+  document
+    .querySelectorAll('[data-scroll-form]')
+    .forEach((button) => {
+      button.addEventListener('click', openAmazonFromCta);
+    });
 
   function setupUgc() {
     document.querySelectorAll('.ugc').forEach(section => {
