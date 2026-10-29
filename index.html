@@ -796,6 +796,171 @@
     .hero .button-pair.small{
       min-width:198px;
     }
+    /* DESKTOP HERO — TMM COLLAB REFERENCE */
+    @media (min-width: 1200px) {
+      .hero .hero-inner {
+        max-width: 1280px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        gap: 48px;
+        padding: 64px 32px 72px;
+      }
+
+      .hero .hero-copy {
+        align-items: flex-start;
+        gap: 12px;
+        max-width: 560px;
+      }
+
+      .hero .hero-collab-title {
+        display: block;
+        margin: 0;
+        font-family: Bangers, Impact, sans-serif;
+        font-size: clamp(58px, 4.6vw, 76px);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        color: var(--blue);
+        -webkit-text-stroke: 0;
+        filter: none;
+        text-shadow: 3px 4px 0 var(--bg);
+        text-wrap: balance;
+      }
+
+      .hero .hero-title-blue {
+        color: var(--blue);
+      }
+
+      .hero .hero-title-x {
+        color: var(--yellow);
+        white-space: nowrap;
+      }
+
+      .hero .hero-title-green {
+        display: block;
+        color: var(--green);
+      }
+
+      .hero .hero-script {
+        margin: 4px 0 0;
+        font-family: "Comic Sans MS", cursive;
+        font-size: 26px;
+        font-weight: 400;
+        font-style: italic;
+        line-height: 1.2;
+        color: #fff;
+        text-shadow: none;
+      }
+
+      .hero .hero-coffee-title {
+        margin: 0;
+        font-family: Bangers, Impact, sans-serif;
+        font-size: clamp(48px, 4.1vw, 68px);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0.015em;
+        color: var(--yellow);
+        text-shadow: 2px 3px 0 var(--bg);
+      }
+
+      .hero .hero-buy-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 425px;
+        max-width: 100%;
+        min-height: 120px;
+        margin-top: 12px;
+        padding: 8px 12px 5px;
+        background: #fff;
+        color: #111;
+        border: 2px solid var(--yellow);
+        border-radius: 22px;
+        box-shadow: 0 0 22px rgba(255, 236, 0, 0.24);
+        cursor: pointer;
+      }
+
+      .hero .hero-buy-pill {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 48px;
+        padding: 8px 16px;
+        border: 3px solid #243A55;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #FFE879 0%, #FFB900 100%);
+        box-shadow: 0 3px 0 #243A55;
+        color: #111;
+        font: 700 20px/1 Arial, Helvetica, sans-serif;
+      }
+
+      .hero .hero-amazon-word {
+        margin-top: 5px;
+        color: #050505;
+        font: 900 34px/0.95 Arial, Helvetica, sans-serif;
+        letter-spacing: -0.04em;
+      }
+
+      .hero .hero-buy-card svg {
+        display: block;
+        margin-top: -1px;
+      }
+
+      .hero .countdown-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      .hero .countdown-label {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .hero .countdown {
+        gap: 6px;
+      }
+
+      .hero .timebox {
+        min-width: 64px;
+        padding: 7px 6px;
+        border-width: 2px;
+        border-radius: 9px;
+      }
+
+      .hero .timebox .num {
+        font-size: 26px;
+      }
+
+      .hero .timebox .lbl {
+        font-size: 9px;
+      }
+
+      .hero .hero-product {
+        min-height: 560px;
+        padding: 0;
+      }
+
+      .hero .pack-card {
+        width: min(100%, 340px);
+        padding: 18px;
+        border-radius: 24px;
+        animation: none;
+        transform: rotate(1deg);
+      }
+
+      .hero .fans-only {
+        top: 12px;
+        right: 0;
+        width: 120px;
+        height: 120px;
+      }
+    }
   </style>
   <script src="./pixel.js"></script>
   <script src="./fbpixel.js"></script>
@@ -980,13 +1145,90 @@
   <div class="desktop-only">
     <div class="ticker"><div class="ticker-track"><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div></div></div>
 
-    <section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-inner">
-      <div class="hero-copy"><button class="button-pair small" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon with 25% off</span></button><span class="eyebrow">EXCLUSIVE EDITION · RAW COFFEE+</span><h1>TAKE MY<br>MUFFIN <span class="yellow">&amp;</span><br><span class="blue">RAW GRAVITY</span><br>COLLAB</h1><p>TMM fans get the discount.<br>Everyone else just gets the coffee.</p><div><div class="fan-price">Fan price: −25% off</div></div><div class="countdown-wrap"><span class="countdown-label">FAN PRICE ENDS IN</span><div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">DAYS</span></span><span style="font:900 30px 'Arial Black';color:#fff;align-self:center">:</span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">HRS</span></span><span style="font:900 30px 'Arial Black';color:#fff;align-self:center">:</span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">MIN</span></span><span style="font:900 30px 'Arial Black';color:#fff;align-self:center">:</span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">SEC</span></span></div></div><button class="button-pair large hero-main-cta" type="button" data-scroll-form>
-        <span class="amazon">amazon</span>
-        <span class="offer">Try Raw Coffee now</span>
-      </button></div>
-      <div class="hero-product"><div class="hero-glow"></div><div class="pack-card"><img src="assets/pack.webp" alt="TMM × Raw Gravity Raw coffee+ Exclusive Edition pack"></div><div class="fans-only"><span class="big">−25%</span><span class="small">FANS ONLY</span></div></div>
-    </div></section>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-collab-title">
+            <span class="hero-title-blue">RAW GRAVITY</span>
+            <span class="hero-title-x">×</span>
+            <span class="hero-title-green">TAKE MY MUFFIN</span>
+          </h1>
+
+          <p class="hero-script">A limited-edition</p>
+
+          <h2 class="hero-coffee-title">COFFEE COLLAB</h2>
+
+          <button
+            class="hero-buy-card"
+            type="button"
+            data-scroll-form
+            aria-label="Buy Raw Coffee on Amazon"
+          >
+            <span class="hero-buy-pill">Click &amp; Buy on</span>
+            <span class="hero-amazon-word">amazon</span>
+
+            <svg
+              viewBox="0 0 120 16"
+              width="112"
+              height="15"
+              fill="none"
+              stroke="#FF9900"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 3 Q58 18 104 5"></path>
+              <path d="M96 2 L106 5 L101 13"></path>
+            </svg>
+          </button>
+
+          <div class="countdown-wrap">
+            <span class="countdown-label">FAN PRICE ENDS IN</span>
+
+            <div class="countdown">
+              <span class="timebox">
+                <span class="num" data-days>00</span>
+                <span class="lbl">DAYS</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-hours>00</span>
+                <span class="lbl">HRS</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-minutes>00</span>
+                <span class="lbl">MIN</span>
+              </span>
+
+              <span class="timebox">
+                <span class="num" data-seconds>00</span>
+                <span class="lbl">SEC</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-product">
+          <div class="hero-glow"></div>
+
+          <div class="pack-card">
+            <img
+              src="assets/pack.webp"
+              alt="Take My Muffin × Raw Gravity Raw coffee+ Exclusive Edition pack"
+            >
+          </div>
+
+          <div class="fans-only">
+            <span class="big">−25%</span>
+            <span class="small">FANS ONLY</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="benefits"><div class="benefits-track"><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div></div></div>
 
