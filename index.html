@@ -961,6 +961,55 @@
         height: 120px;
       }
     }
+    .instead-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 145px;
+      min-height: 100px;
+      padding: 12px 10px;
+
+      background: var(--green);
+      color: var(--bg);
+
+      clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+
+      font-family: Bangers, Impact, sans-serif;
+      font-size: 29px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @media (min-width: 1200px) {
+      .compare {
+        gap: 34px;
+      }
+
+      .compare h2 {
+        max-width: 100%;
+        font-size: clamp(48px, 4.2vw, 64px);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .compare-stack {
+        max-width: 1280px;
+        gap: 24px;
+      }
+
+      .compare-image {
+        height: 220px;
+      }
+
+      .instead-label {
+        width: 155px;
+        min-height: 112px;
+        font-size: 32px;
+      }
+    }
   </style>
   <script src="./pixel.js"></script>
   <script src="./fbpixel.js"></script>
@@ -1006,10 +1055,16 @@
     </div></div>
 
     <section class="compare">
-      <h2>This is what <span class="red">energy drinks</span> do to you<br>This is what <br><span class="green">we do instead</span></h2>
+      <h2>
+        What <span class="red">energy drinks</span> do to you
+      </h2>
       <div class="compare-stack">
         <article class="compare-card energy"><div class="compare-image energy-bg"><div class="compare-tag">On energy drinks</div></div><ul class="compare-list"><li><span class="x">✕</span>Loads of sugar</li><li><span class="x">✕</span>Shaky hands mid-raid</li><li><span class="x">✕</span>Sharp, short spike of energy</li><li><span class="x">✕</span>Hard crash by 2am</li></ul></article>
-        <div class="vs">VS</div>
+        <div class="instead-label">
+          WHAT<br>
+          WE DO<br>
+          INSTEAD
+        </div>
         <article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article>
       </div>
       <button class="button-pair large compare-cta" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon</span></button>
@@ -1232,8 +1287,14 @@
 
     <div class="benefits"><div class="benefits-track"><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div></div></div>
 
-    <section class="compare"><h2>This is what <span class="red">energy drinks</span> do to you<br>This is what <span class="green">we do instead</span></h2><div class="compare-stack">
-      <article class="compare-card energy"><div class="compare-image energy-bg"><div class="compare-tag">On energy drinks</div></div><ul class="compare-list"><li><span class="x">✕</span>Loads of sugar</li><li><span class="x">✕</span>Shaky hands mid-raid</li><li><span class="x">✕</span>Sharp, short spike of energy</li><li><span class="x">✕</span>Hard crash by 2am</li></ul></article><div class="vs">VS</div><article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon</span></button></section>
+    <section class="compare"><h2>
+        What <span class="red">energy drinks</span> do to you
+      </h2><div class="compare-stack">
+      <article class="compare-card energy"><div class="compare-image energy-bg"><div class="compare-tag">On energy drinks</div></div><ul class="compare-list"><li><span class="x">✕</span>Loads of sugar</li><li><span class="x">✕</span>Shaky hands mid-raid</li><li><span class="x">✕</span>Sharp, short spike of energy</li><li><span class="x">✕</span>Hard crash by 2am</li></ul></article><div class="instead-label">
+        WHAT<br>
+        WE DO<br>
+        INSTEAD
+      </div><article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon</span></button></section>
 
     <section class="discount"><div class="discount-inner"><div class="discount-copy"><h3>Your fan price is still available — 25% off</h3><p>Get the collab before your feed spoils<br>the restock news.</p></div><div class="discount-actions"><div class="countdown"><span class="timebox"><span class="num" data-days>00</span><span class="lbl">DAYS</span></span><span class="timebox"><span class="num" data-hours>00</span><span class="lbl">HRS</span></span><span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">MIN</span></span><span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">SEC</span></span></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Try Raw Coffee+</span></button></div></div></section>
 
