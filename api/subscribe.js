@@ -80,7 +80,7 @@ export default async function handler(req, res) {
 				list: {
 				  data: {
 					type: "list",
-					id: "T5Wm7i"
+					id: "UNMVkY"
 				  }
 				}
 			  }
@@ -200,7 +200,7 @@ export default async function handler(req, res) {
      * Does NOT change subscription status.
      */
     const listResponse = await fetch(
-      "https://a.klaviyo.com/api/lists/T5Wm7i/relationships/profiles",
+      "https://a.klaviyo.com/api/lists/UNMVkY/relationships/profiles",
       {
         method: "POST",
         headers,
@@ -240,7 +240,7 @@ export default async function handler(req, res) {
 
     console.log(
       "Klaviyo profile added to list:",
-      "T5Wm7i"
+      "UNMVkY"
     );
 
 
