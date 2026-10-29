@@ -1775,6 +1775,183 @@
     font-size: 9px;
     letter-spacing: 0;
   }
+  /* MOBILE HERO — GIF REFERENCE */
+  #hero-mobile .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 14, 0.35) 0%,
+      rgba(10, 10, 14, 0.5) 58%,
+      #0b0b0d 100%
+    );
+  }
+
+  #hero-mobile .hero-inner {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 18px 24px 30px;
+    text-align: left;
+  }
+
+  #hero-mobile .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  #hero-mobile .hero-collab-title {
+    max-width: 100%;
+    margin: 0;
+    color: #fff;
+    font: 400 38px/0.94 Bangers, Impact, sans-serif;
+    letter-spacing: 0.015em;
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+    filter: none;
+    text-wrap: balance;
+  }
+
+  #hero-mobile .hero-title-blue {
+    color: var(--blue);
+  }
+
+  #hero-mobile .hero-title-x {
+    color: var(--yellow);
+    white-space: nowrap;
+  }
+
+  #hero-mobile .hero-title-green {
+    display: block;
+    color: var(--green);
+  }
+
+  #hero-mobile .hero-script {
+    margin: 4px 0 0;
+    color: #fff;
+    font: italic 24px/1.2 "Comic Sans MS", cursive;
+  }
+
+  #hero-mobile .hero-coffee-title {
+    margin: 0;
+    color: var(--yellow);
+    font: 400 42px/1 Bangers, Impact, sans-serif;
+    letter-spacing: 0.015em;
+  }
+
+  #hero-mobile .hero-product {
+    width: 100%;
+    min-height: 220px;
+    padding: 4px 0;
+  }
+
+  #hero-mobile .hero-glow {
+    display: none;
+  }
+
+  #hero-mobile .pack-card {
+    width: 185px;
+    padding: 10px;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    animation: none;
+  }
+
+  #hero-mobile .fans-only {
+    top: 8px;
+    right: 36px;
+    width: 72px;
+    height: 72px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 var(--bg);
+  }
+
+  #hero-mobile .fans-only .big {
+    font-size: 26px;
+  }
+
+  #hero-mobile .fans-only .small {
+    font-size: 10px;
+  }
+
+  #hero-mobile .hero-buy-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 395px;
+    min-height: 106px;
+    margin-top: 8px;
+    padding: 8px 12px 5px;
+    border: 2px solid var(--yellow);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(255, 236, 0, 0.22);
+    cursor: pointer;
+  }
+
+  #hero-mobile .hero-buy-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 8px 16px;
+    border: 3px solid #243a55;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #ffe879 0%, #ffb900 100%);
+    box-shadow: 0 3px 0 #243a55;
+    color: #111;
+    font: 700 18px/1 Arial, Helvetica, sans-serif;
+  }
+
+  #hero-mobile .amazon-logo-image {
+    display: block;
+    width: 140px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 5px;
+    object-fit: contain;
+  }
+
+  #hero-mobile .countdown-wrap {
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+  }
+
+  #hero-mobile .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+  }
+
+  #hero-mobile .timebox {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 3px;
+    min-width: 0;
+    padding: 8px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 9px;
+    background: rgba(15, 15, 18, 0.65);
+  }
+
+  #hero-mobile .timebox .num {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  #hero-mobile .timebox .lbl {
+    margin: 0;
+    color: var(--yellow);
+    font-size: 9px;
+    letter-spacing: 0;
+  }
   </style>
   <script src="./pixel.js"></script>
   <script src="./fbpixel.js"></script>
@@ -1804,7 +1981,6 @@
           </h1>
 
           <p class="hero-script">A limited-edition</p>
-
           <h2 class="hero-coffee-title">COFFEE COLLAB</h2>
         </div>
 
@@ -1842,22 +2018,10 @@
           <span class="countdown-label">FAN PRICE ENDS IN</span>
 
           <div class="countdown">
-            <span class="timebox">
-              <span class="num" data-days>00</span>
-              <span class="lbl">DAYS</span>
-            </span>
-            <span class="timebox">
-              <span class="num" data-hours>00</span>
-              <span class="lbl">HRS</span>
-            </span>
-            <span class="timebox">
-              <span class="num" data-minutes>00</span>
-              <span class="lbl">MIN</span>
-            </span>
-            <span class="timebox">
-              <span class="num" data-seconds>00</span>
-              <span class="lbl">SEC</span>
-            </span>
+            <span class="timebox"><span class="num" data-days>00</span><span class="lbl">DAYS</span></span>
+            <span class="timebox"><span class="num" data-hours>00</span><span class="lbl">HRS</span></span>
+            <span class="timebox"><span class="num" data-minutes>00</span><span class="lbl">MIN</span></span>
+            <span class="timebox"><span class="num" data-seconds>00</span><span class="lbl">SEC</span></span>
           </div>
         </div>
       </div>
