@@ -1404,6 +1404,202 @@
     margin-top: 5px;
     object-fit: contain;
   }
+  /* COMPARE: match client reference */
+  .compare {
+    background: #0b0b0d;
+  }
+
+  .compare h2 {
+    text-transform: uppercase;
+  }
+
+  .compare h2 .red {
+    display: inline-block;
+    padding: 2px 10px 4px;
+    background: var(--orange);
+    color: #0b0b0d;
+    clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+  }
+
+  .compare-card {
+    background: #101013;
+    border-width: 1px;
+    border-radius: 24px;
+  }
+
+  .compare-card.energy {
+    border-color: #55261b;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .compare-card.raw {
+    border-color: #31501d;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .compare-image {
+    border-bottom: 1px solid #29292e;
+  }
+
+  .compare-tag,
+  .compare-card.energy .compare-tag,
+  .compare-card.raw .compare-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    top: 18px;
+    padding: 6px 12px;
+    background: #101013;
+    color: #fff;
+    border: 1px solid #343439;
+    border-radius: 999px;
+    font: 700 11px/1 Arial, Helvetica, sans-serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .compare-card.energy .compare-tag {
+    left: 18px;
+  }
+
+  .compare-card.raw .compare-tag {
+    right: 18px;
+  }
+
+  .compare-tag::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  .compare-card.raw .compare-tag::before {
+    background: var(--green);
+  }
+
+  .compare-list {
+    padding: 16px 22px;
+    gap: 0;
+    background: #101013;
+  }
+
+  .compare-list li {
+    min-height: 45px;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-top: 1px solid #29292e;
+  }
+
+  .compare-list li:first-child {
+    border-top: 0;
+  }
+
+  .compare-list .x,
+  .compare-list .check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    font: 700 13px/1 Arial, Helvetica, sans-serif;
+  }
+
+  .compare-list .x {
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 50%;
+  }
+
+  .compare-list .check {
+    color: #0b0b0d;
+    background: var(--green);
+    border-radius: 50%;
+  }
+
+  .instead-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 155px;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    color: #fff;
+    clip-path: none;
+  }
+
+  .instead-word {
+    color: #fff;
+    font: 400 30px/1 Bangers, Impact, sans-serif;
+  }
+
+  .instead-badge {
+    display: block;
+    width: 155px;
+    padding: 8px 12px;
+    background: var(--green);
+    color: #0b0b0d;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    font: 400 30px/1 Bangers, Impact, sans-serif;
+    text-align: center;
+  }
+
+  @media (min-width: 1200px) {
+    .compare-stack {
+      grid-template-columns: minmax(0, 1fr) 155px minmax(0, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+    }
+
+    .compare-card {
+      border-width: 1px;
+      border-radius: 24px;
+    }
+
+    .compare-image {
+      height: 245px;
+      border-bottom-width: 1px;
+    }
+
+    .compare-tag,
+    .compare-card.energy .compare-tag,
+    .compare-card.raw .compare-tag {
+      top: 18px;
+      font-size: 11px;
+    }
+
+    .compare-card.energy .compare-tag {
+      left: 18px;
+    }
+
+    .compare-card.raw .compare-tag {
+      right: 18px;
+    }
+
+    .compare-list {
+      padding: 16px 22px;
+      gap: 0;
+      font-size: 17px;
+    }
+
+    .compare-list .x,
+    .compare-list .check {
+      font-size: 13px;
+    }
+
+    .instead-label {
+      width: 155px;
+      min-height: 0;
+    }
+  }
   </style>
   <script src="./pixel.js"></script>
   <script src="./fbpixel.js"></script>
@@ -1660,20 +1856,6 @@
               src="assets/amazon-logo-transparent.png"
               alt="Amazon"
             >
-
-            <svg
-              viewBox="0 0 120 16"
-              width="72"
-              height="10"
-              fill="none"
-              stroke="#FF9900"
-              stroke-width="4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M6 3 Q58 18 104 5"></path>
-              <path d="M96 2 L106 5 L101 13"></path>
-            </svg>
           </button>
 
           <div class="countdown-wrap">
@@ -1821,21 +2003,6 @@
               src="assets/amazon-logo-transparent.png"
               alt="Amazon"
             >
-
-            <svg
-              viewBox="0 0 120 16"
-              width="72"
-              height="10"
-              fill="none"
-              stroke="#FF9900"
-              stroke-width="4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M6 3 Q58 18 104 5"></path>
-              <path d="M96 2 L106 5 L101 13"></path>
-            </svg>
           </a>
         </div>
 
