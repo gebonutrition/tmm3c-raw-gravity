@@ -1293,6 +1293,110 @@
         font-size: 8px;
       }
     }
+    .ticker {
+      height: 32px;
+      background: #0b0b0d;
+      border-bottom: 1px solid #29292e;
+    }
+
+    .ticker-track {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .ticker-item {
+      gap: 26px;
+      padding-right: 26px;
+    }
+
+    .ticker-green {
+      color: #f5f5f5;
+    }
+
+    .ticker-yellow {
+      color: var(--yellow);
+    }
+
+    .ticker-separator {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .hero-amazon-word,
+    .discount-amazon-word,
+    .community-purchase-amazon-word {
+      display: inline-block;
+      transform: scaleX(1.22);
+      transform-origin: center;
+    }
+    .reviews .review {
+      background: linear-gradient(135deg, #19191d 0%, #121215 100%);
+      border: 1px solid #29292e;
+      border-radius: 22px;
+      box-shadow: none;
+    }
+
+    .reviews .review:nth-child(1),
+    .reviews .review:nth-child(2),
+    .reviews .review:nth-child(3),
+    .reviews .review:nth-child(4),
+    .reviews .review:nth-child(5),
+    .reviews .review:nth-child(6) {
+      box-shadow: none;
+    }
+
+    .review blockquote {
+      font: 400 16px/1.5 Arial, Helvetica, sans-serif;
+    }
+
+    .review:nth-child(1) blockquote::first-letter {
+      color: var(--green);
+    }
+
+    .review:nth-child(2) blockquote::first-letter {
+      color: var(--blue);
+    }
+
+    .review:nth-child(3) blockquote::first-letter {
+      color: var(--purple);
+    }
+    @media (min-width: 1200px) {
+    .community-purchase-inner {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 48px;
+    }
+
+    .community-purchase-heading {
+      grid-template-columns: minmax(0, 1fr) 108px;
+      gap: 10px;
+    }
+
+    .community-purchase-copy h2 {
+      font-size: clamp(50px, 3vw, 64px);
+      white-space: nowrap;
+    }
+
+    .community-purchase-buy-card {
+      max-width: 450px;
+    }
+
+    .community-purchase-countdown .timebox {
+      padding: 4px 7px;
+      background: rgba(8, 13, 22, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 7px;
+    }
+
+    .community-purchase-countdown .num {
+      font-size: 18px;
+    }
+
+    .community-purchase-countdown .lbl {
+      font-size: 9px;
+    }
+  }
   </style>
   <script src="./pixel.js"></script>
   <script src="./fbpixel.js"></script>
@@ -1304,8 +1408,8 @@
   <div class="mobile-only">
     <div class="ticker">
       <div class="ticker-track">
-        <div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div>
-        <div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div>
+        <div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span class="ticker-separator">+</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span class="ticker-separator">+</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span class="ticker-separator">+</span></div>
+        <div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span class="ticker-separator">+</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span class="ticker-separator">+</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span class="ticker-separator">+</span></div>
       </div>
     </div>
 
@@ -1332,11 +1436,6 @@
       </div>
     </section>
 
-    <div class="benefits"><div class="benefits-track">
-      <div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div>
-      <div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div>
-    </div></div>
-
     <section class="compare">
       <h2>
         What <span class="red">energy drinks</span> do to you
@@ -1344,13 +1443,11 @@
       <div class="compare-stack">
         <article class="compare-card energy"><div class="compare-image energy-bg"><div class="compare-tag">On energy drinks</div></div><ul class="compare-list"><li><span class="x">✕</span>Loads of sugar</li><li><span class="x">✕</span>Shaky hands mid-raid</li><li><span class="x">✕</span>Sharp, short spike of energy</li><li><span class="x">✕</span>Hard crash by 2am</li></ul></article>
         <div class="instead-label">
-          WHAT<br>
-          WE DO<br>
-          INSTEAD
+          <span class="instead-word">WHAT</span>
+          <span class="instead-badge">WE DO<br>INSTEAD</span>
         </div>
         <article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article>
       </div>
-      <button class="button-pair large compare-cta" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon</span></button>
     </section>
 
     <section class="discount">
@@ -1399,9 +1496,6 @@
       <figure class="review"><blockquote>“Three raid nights in a row till 5am and I was still sharp. Didn't expect that from a coffee packet.”</blockquote><figcaption style="color:var(--green)">Dan M. <span class="muted">— dev, TMM fan</span></figcaption></figure>
       <figure class="review"><blockquote>“Creatine in coffee sounds insane until you read the studies. Then it sounds obvious.”</blockquote><figcaption style="color:var(--blue)">r/nootropics <span class="muted">— verified purchase</span></figcaption></figure>
       <figure class="review"><blockquote>“The collab packaging alone is worth it. That it also works is a bonus.”</blockquote><figcaption style="color:var(--yellow)">Alex T. <span class="muted">— 24</span></figcaption></figure>
-      <figure class="review"><blockquote>“No crash, no jitters, just steady focus through my whole shift.”</blockquote><figcaption style="color:var(--cyan)">Marco T. <span class="muted">— streamer</span></figcaption></figure>
-      <figure class="review"><blockquote>“I'm not a 'wellness' guy but this actually replaced my energy drink habit.”</blockquote><figcaption style="color:var(--green)">Jake R. <span class="muted">— 27</span></figcaption></figure>
-      <figure class="review"><blockquote>“Grabbed it for the TMM packaging, stayed for the focus during my study sessions.”</blockquote><figcaption style="color:var(--purple)">Nina K. <span class="muted">— 22</span></figcaption></figure>
     </div><p class="swipe-note">SWIPE FOR MORE →</p></section>
     <section class="community-purchase-section">
       <div class="community-purchase-inner">
@@ -1535,12 +1629,12 @@
       </div>
     </section>
 
-    <footer class="footer"><div class="footer-logo"><span><span class="g">Take </span><span class="m">my </span><span class="y">Muffin</span></span><span class="x">×</span><span>Raw Gravity</span></div><div class="footer-buttons"><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon</span></button></div><div class="badges"><span class="badge">Made in USA</span><span class="badge">Vegan Friendly</span><span class="badge">Non-GMO</span><span class="badge">No Proprietary Blends</span><span class="badge">Amazon Buyer Protection</span></div><div class="social"><a href="https://tiktok.com/@rawgravity.official" target="_blank" rel="noopener">TikTok</a><a href="https://instagram.com/rawgravity.official" target="_blank" rel="noopener">Instagram</a><a href="https://youtube.com/@rawgravity.official" target="_blank" rel="noopener">YouTube</a></div><div class="legal"><p>Dietary Supplement. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p><p>© 2026 Raw Gravity. All rights reserved.</p></div></footer>
+    <footer class="footer"><div class="footer-logo"><span><span class="g">Take </span><span class="m">my </span><span class="y">Muffin</span></span><span class="x">×</span><span>Raw Gravity</span></div><div class="badges"><span class="badge">Made in USA</span><span class="badge">Vegan Friendly</span><span class="badge">Non-GMO</span><span class="badge">No Proprietary Blends</span><span class="badge">Amazon Buyer Protection</span></div><div class="social"><a href="https://tiktok.com/@rawgravity.official" target="_blank" rel="noopener">TikTok</a><a href="https://instagram.com/rawgravity.official" target="_blank" rel="noopener">Instagram</a><a href="https://youtube.com/@rawgravity.official" target="_blank" rel="noopener">YouTube</a></div><div class="legal"><p>Dietary Supplement. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p><p>© 2026 Raw Gravity. All rights reserved.</p></div></footer>
   </div>
 
   <!-- DESKTOP -->
   <div class="desktop-only">
-    <div class="ticker"><div class="ticker-track"><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span>·</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span>·</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span>·</span></div></div></div>
+    <div class="ticker"><div class="ticker-track"><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span class="ticker-separator">+</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span class="ticker-separator">+</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span class="ticker-separator">+</span></div><div class="ticker-item"><span class="ticker-green">TAKE MY MUFFIN × RAW GRAVITY</span><span class="ticker-separator">+</span><span class="ticker-yellow">FAN DISCOUNT −25%</span><span class="ticker-separator">+</span><span class="ticker-green">LIMITED COLLAB EDITION</span><span class="ticker-separator">+</span></div></div></div>
 
     <section class="hero">
       <div class="hero-bg"></div>
@@ -1627,16 +1721,13 @@
       </div>
     </section>
 
-    <div class="benefits"><div class="benefits-track"><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div><div class="benefit-item"><span>⚡ ENERGY</span><span>·</span><span>🧠 FOCUS</span><span>·</span><span>🚫 NO CRASH</span><span>·</span><span>NO JITTERS</span><span>·</span><span>ZERO SUGAR</span><span>·</span><span>3,000MG CREATINE</span><span>·</span><span>FAN-MADE FORMULA</span><span>·</span></div></div></div>
-
     <section class="compare"><h2>
         What <span class="red">energy drinks</span> do to you
       </h2><div class="compare-stack">
       <article class="compare-card energy"><div class="compare-image energy-bg"><div class="compare-tag">On energy drinks</div></div><ul class="compare-list"><li><span class="x">✕</span>Loads of sugar</li><li><span class="x">✕</span>Shaky hands mid-raid</li><li><span class="x">✕</span>Sharp, short spike of energy</li><li><span class="x">✕</span>Hard crash by 2am</li></ul></article><div class="instead-label">
-        WHAT<br>
-        WE DO<br>
-        INSTEAD
-      </div><article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article></div><button class="button-pair large" type="button" data-scroll-form><span class="amazon">amazon</span><span class="offer">Buy on Amazon</span></button></section>
+        <span class="instead-word">WHAT</span>
+        <span class="instead-badge">WE DO<br>INSTEAD</span>
+      </div><article class="compare-card raw"><div class="compare-image raw-bg"><div class="compare-tag">On Raw coffee+</div></div><ul class="compare-list"><li><span class="check">✓</span>Raw energy for 6 hours</li><li><span class="check">✓</span>Calm &amp; focus</li><li><span class="check">✓</span>Productivity &amp; energy</li><li><span class="check">✓</span>~23mg caffeine. 3,000mg Creatine. No jitters · no crash.</li></ul></article></div></section>
 
     <section class="discount">
       <div class="discount-inner">
@@ -1678,7 +1769,7 @@
 
     <section class="ugc"><div class="ugc-inner"><div class="ugc-head"><h2 class="ugc-title">Fans in the wild</h2><div class="ugc-nav"><button type="button" data-ugc-prev aria-label="Previous">←</button><button type="button" data-ugc-next aria-label="Next">→</button></div></div><div class="ugc-track" data-ugc-track><div class="ugc-card"><img src="assets/ugc-1.webp" alt="Raw Gravity lifestyle photo 1"></div><div class="ugc-card"><img src="assets/ugc-2.webp" alt="Raw Gravity lifestyle photo 2"></div><div class="ugc-card"><img src="assets/ugc-3.webp" alt="Raw Gravity lifestyle photo 3"></div><div class="ugc-card"><img src="assets/ugc-4.webp" alt="Raw Gravity lifestyle photo 4"></div><div class="ugc-card"><img src="assets/ugc-5.webp" alt="Raw Gravity lifestyle photo 5"></div><div class="ugc-card"><img src="assets/ugc-6.webp" alt="Raw Gravity lifestyle photo 6"></div></div></div></section>
 
-    <section class="testimonials"><div class="reviews"><figure class="review"><blockquote>“Three raid nights in a row till 5am and I was still sharp. Didn't expect that from a coffee packet.”</blockquote><figcaption style="color:var(--green)">Dan M. <span class="muted">— dev, TMM fan</span></figcaption></figure><figure class="review"><blockquote>“Creatine in coffee sounds insane until you read the studies. Then it sounds obvious.”</blockquote><figcaption style="color:var(--blue)">r/nootropics <span class="muted">— verified purchase</span></figcaption></figure><figure class="review"><blockquote>“The collab packaging alone is worth it. That it also works is a bonus.”</blockquote><figcaption style="color:var(--yellow)">Alex T. <span class="muted">— 24</span></figcaption></figure><figure class="review"><blockquote>“No crash, no jitters, just steady focus through my whole shift.”</blockquote><figcaption style="color:var(--cyan)">Marco T. <span class="muted">— streamer</span></figcaption></figure><figure class="review"><blockquote>“I'm not a 'wellness' guy but this actually replaced my energy drink habit.”</blockquote><figcaption style="color:var(--green)">Jake R. <span class="muted">— 27</span></figcaption></figure><figure class="review"><blockquote>“Grabbed it for the TMM packaging, stayed for the focus during my study sessions.”</blockquote><figcaption style="color:var(--purple)">Nina K. <span class="muted">— 22</span></figcaption></figure></div></section>
+    <section class="testimonials"><div class="reviews"><figure class="review"><blockquote>“Three raid nights in a row till 5am and I was still sharp. Didn't expect that from a coffee packet.”</blockquote><figcaption style="color:var(--green)">Dan M. <span class="muted">— dev, TMM fan</span></figcaption></figure><figure class="review"><blockquote>“Creatine in coffee sounds insane until you read the studies. Then it sounds obvious.”</blockquote><figcaption style="color:var(--blue)">r/nootropics <span class="muted">— verified purchase</span></figcaption></figure><figure class="review"><blockquote>“The collab packaging alone is worth it. That it also works is a bonus.”</blockquote><figcaption style="color:var(--yellow)">Alex T. <span class="muted">— 24</span></figcaption></figure></div></section>
     <section class="community-purchase-section">
       <div class="community-purchase-inner">
 
