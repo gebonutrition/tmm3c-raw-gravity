@@ -1,14 +1,5 @@
 (function () {
-  const fbPixelId = new URLSearchParams(
-    window.location.search
-  ).get("fbpixel");
-
-  if (!fbPixelId) {
-    console.warn(
-      "Facebook Pixel ID not found. Use ?fbpixel=YOUR_PIXEL_ID"
-    );
-    return;
-  }
+  const fbPixelId = "1632582321547641";
 
   !function (f, b, e, v, n, t, s) {
     if (f.fbq) return;
